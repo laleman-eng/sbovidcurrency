@@ -1,0 +1,48 @@
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\SBO VID Currency.exe.config
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\obj\x86\Debug\Interop.SAPbobsCOM.dll
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO VID Currency.csproj.ResolveComReference.cache
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\SBO VID Currency.exe
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\SBO VID Currency.pdb
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\HtmlAgilityPack.dll
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.Core.dll
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.GlobalVid.dll
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.uEncrypt.dll
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.GlobalVid.pdb
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\HtmlAgilityPack.pdb
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\HtmlAgilityPack.xml
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.Core.pdb
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.uEncrypt.pdb
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\Interop.SAPbobsCOM.dll
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO VID Currency.csprojResolveAssemblyReference.cache
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO_VID_Currency.Properties.Resources.resources
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO_VID_Currency.ServiceForm.resources
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO_VID_Currency.SetupParams.resources
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO VID Currency.csproj.GenerateResource.Cache
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO VID Currency.exe
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO VID Currency.pdb
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\bin\x86\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\SBO VID Currency.exe.config
+C:\Users\IOP\Documents\SBO\SBO VID Currency\obj\x86\Debug\Interop.SAPbobsCOM.dll
+C:\Users\IOP\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO VID Currency.csproj.ResolveComReference.cache
+C:\Users\IOP\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO VID Currency.exe
+C:\Users\IOP\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO VID Currency.pdb
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\SBO VID Currency.exe
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\SBO VID Currency.pdb
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\HtmlAgilityPack.dll
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.Core.dll
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.GlobalVid.dll
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.uEncrypt.dll
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.GlobalVid.pdb
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\HtmlAgilityPack.pdb
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\HtmlAgilityPack.xml
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.Core.pdb
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.uEncrypt.pdb
+C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\Interop.SAPbobsCOM.dll
+C:\Users\IOP\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO VID Currency.csprojResolveAssemblyReference.cache
+C:\Users\IOP\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO_VID_Currency.Properties.Resources.resources
+C:\Users\IOP\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO_VID_Currency.ServiceForm.resources
+C:\Users\IOP\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO_VID_Currency.SetupParams.resources
+C:\Users\IOP\Documents\SBO\SBO VID Currency\obj\x86\Debug\SBO VID Currency.csproj.GenerateResource.Cache

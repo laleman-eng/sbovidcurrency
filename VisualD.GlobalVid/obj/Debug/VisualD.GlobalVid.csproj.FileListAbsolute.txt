@@ -1,0 +1,25 @@
+C:\Documents and Settings\Administrador\Mis documentos\SBO\SBO VID Currency Service\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.dll
+C:\Documents and Settings\Administrador\Mis documentos\SBO\SBO VID Currency Service\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.pdb
+C:\Documents and Settings\Administrador\Mis documentos\SBO\SBO VID Currency Service\VisualD.GlobalVid\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Mis documentos\SBO\SBO VID Currency Service\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.dll
+C:\Documents and Settings\Administrador\Mis documentos\SBO\SBO VID Currency Service\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.pdb
+C:\Users\iorellana\Documents\SBO\SBO VID Currency Service\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.dll
+C:\Users\iorellana\Documents\SBO\SBO VID Currency Service\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.pdb
+C:\Users\iorellana\Documents\SBO\SBO VID Currency Service\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.dll
+C:\Users\iorellana\Documents\SBO\SBO VID Currency Service\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.pdb
+C:\Users\iorellana\Documents\SBO\SBO VID Currency Service\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.csprojResolveAssemblyReference.cache
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.dll
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.pdb
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.dll
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.pdb
+C:\Users\iorellana\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.csprojResolveAssemblyReference.cache
+C:\Users\IOP\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.dll
+C:\Users\IOP\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.pdb
+C:\Users\IOP\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.csprojResolveAssemblyReference.cache
+C:\Users\IOP\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.dll
+C:\Users\IOP\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.pdb
+C:\Users\Administrador\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.dll
+C:\Users\Administrador\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.pdb
+C:\Users\Administrador\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.dll
+C:\Users\Administrador\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.pdb
