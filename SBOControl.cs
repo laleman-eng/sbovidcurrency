@@ -283,7 +283,7 @@ namespace SBO_VID_Currency
             var urlDolar = "http://api.sbif.cl/api-sbifv3/recursos_api/" + Moneda + "/posteriores/" + year.ToString() + "/" + month.ToString() + "/dias/" + day.ToString() + "?apikey=" + ApiKey + "&formato=json";
             //euro
             //var url = "http://api.sbif.cl/api-sbifv3/recursos_api/euro/posteriores/2017/01?apikey=c5656cd39657cf74083e0da48b1960e7963b4340&formato=json";
-            Moneda = "Euro"
+            Moneda = "Euro";
             var urlEuro = "http://api.sbif.cl/api-sbifv3/recursos_api/" + Moneda + "/posteriores/" + year.ToString() + "/" + month.ToString() + "/dias/" + day.ToString() + "?apikey=" + ApiKey + "&formato=json";
             //uf
             //var url = "http://api.sbif.cl/api-sbifv3/recursos_api/uf/periodo/2017/2017?apikey=c5656cd39657cf74083e0da48b1960e7963b4340&formato=json";
@@ -361,7 +361,7 @@ namespace SBO_VID_Currency
 
 
 
-                UpdateSBO(ref oCompany, oTasaCambioSBO.Fecha, oTasaCambioSBO.Dolar, oTasaCambioSBO.Euro, oTasaCambioSBO.UF, ref pSBObob);
+                UpdateSBO(ref oCompany, oTasaCambioSBO.Fecha, (Double)oTasaCambioSBO.Dolar, (Double)oTasaCambioSBO.Euro, (Double)oTasaCambioSBO.UF, ref pSBObob);
             }
      
         }
