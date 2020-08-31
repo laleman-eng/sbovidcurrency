@@ -7,6 +7,7 @@ using System.Linq;
 using System.Globalization;
 using VisualD.Core;
 using VisualD.GlobalVid;
+using Newtonsoft.Json.Serialization;
 
 namespace SBO_VID_Currency
 {
@@ -73,7 +74,7 @@ namespace SBO_VID_Currency
                 }
                 catch (Exception) { }
                 // if string with JSON data is not empty, deserialize it to class and return its instance 
-                return !string.IsNullOrEmpty(json_data) ? JsonConvert.DeserializeObject<T>(json_data) : new T();
+                return !string.IsNullOrEmpty(json_data) ?  Newtonsoft.Json.JsonConvert.DeserializeObject<T>(json_data) : new T();
             }
         }
         

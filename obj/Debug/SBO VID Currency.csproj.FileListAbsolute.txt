@@ -38,10 +38,10 @@ C:\VisualK\SBO VID Currency new\bin\Debug\SBO VID Currency.exe.config
 C:\VisualK\SBO VID Currency new\obj\Debug\Interop.SAPbobsCOM.dll
 C:\VisualK\SBO VID Currency new\obj\Debug\SBO VID Currency.csproj.ResolveComReference.cache
 C:\VisualK\SBO VID Currency new\obj\Debug\SBO VID Currency.exe
-C:\VisualK\SBOVIDCurrency\obj\Debug\SBO VID Currency.csprojResolveAssemblyReference.cache
-C:\VisualK\SBOVIDCurrency\obj\Debug\Interop.SAPbobsCOM.dll
-C:\VisualK\SBOVIDCurrency\obj\Debug\SBO VID Currency.csproj.ResolveComReference.cache
-C:\VisualK\SBOVIDCurrency\obj\Debug\SBO_VID_Currency.Properties.Resources.resources
-C:\VisualK\SBOVIDCurrency\obj\Debug\SBO_VID_Currency.ServiceForm.resources
-C:\VisualK\SBOVIDCurrency\obj\Debug\SBO_VID_Currency.SetupParams.resources
-C:\VisualK\SBOVIDCurrency\obj\Debug\SBO VID Currency.csproj.GenerateResource.Cache
+C:\VisualK\sbovidcurrency\obj\Debug\SBO VID Currency.csprojResolveAssemblyReference.cache
+C:\VisualK\sbovidcurrency\obj\Debug\Interop.SAPbobsCOM.dll
+C:\VisualK\sbovidcurrency\obj\Debug\SBO VID Currency.csproj.ResolveComReference.cache
+C:\VisualK\sbovidcurrency\obj\Debug\SBO_VID_Currency.Properties.Resources.resources
+C:\VisualK\sbovidcurrency\obj\Debug\SBO_VID_Currency.ServiceForm.resources
+C:\VisualK\sbovidcurrency\obj\Debug\SBO_VID_Currency.SetupParams.resources
+C:\VisualK\sbovidcurrency\obj\Debug\SBO VID Currency.csproj.GenerateResource.Cache
