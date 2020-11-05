@@ -75,7 +75,6 @@ namespace SBO_VID_Currency
                 if ((LastUpdateDateCurrency.Date == DateTime.Now.Date) && (DateTime.Now.Hour < HourOfInitUpdate))
                     System.Windows.Forms.Application.Exit();
             }
-
             try
             {
                 oLog.LogMsg("Timer paused", "F", "D");
@@ -87,14 +86,16 @@ namespace SBO_VID_Currency
                 }
 
                 oLog.LogMsg("Before Doit", "F", "D");
-                SBOCtrl.Doit(ref nError, ref sMsg, ref LastUpdateDateCurrency);
+                SBOCtrl.Doit(ref nError, ref sMsg);
+
+                //SBOCtrl.Doit(ref nError, ref sMsg, ref LastUpdateDateCurrency); antes
             }
             catch (Exception eX)
             {
                 oLog.LogMsg("Error Servicio : " + eX.Message, "A", "E");
             }
-            _timer.Enabled = true;
-            oLog.LogMsg("Timer restart", "F", "D");
+            //_timer.Enabled = true;
+            //oLog.LogMsg("Timer restart", "F", "D");
         }
 
         private void btnInit_Click(object sender, EventArgs e)

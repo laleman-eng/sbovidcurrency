@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using SAPbobsCOM;
+using Microsoft.CSharp;
 
 namespace SBO_VID_Currency
 {
@@ -58,8 +60,11 @@ namespace SBO_VID_Currency
                     break;
                 case 4: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_MSSQL2016;
                     break;
-                case 5: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_HANADB;
+                case 5: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_MSSQL2017;
                     break;
+                case 6: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_HANADB;
+                    break;
+
             }
             oCompany.UseTrusted = false;
             oCompany.Server = tbServidor.Text;
@@ -177,9 +182,12 @@ namespace SBO_VID_Currency
 
             SBO_VID_Currency.Properties.Settings.Default.SBOUserName = tbSBOUser.Text;
             SBO_VID_Currency.Properties.Settings.Default.SBOPassword = Crypt.Encrypt(tbSBOPass.Text, "VIDCurrency0-09");
-            // SBO_VID_Currency.Properties.Settings.Default.WEBPage = tbPaginaWEB.Text;
+            SBO_VID_Currency.Properties.Settings.Default.WEBPage = tbPaginaWEB.Text;
             SBO_VID_Currency.Properties.Settings.Default.Reintento_Seg = Convert.ToInt32(tbReintento.Text, 10);
-            SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar = Convert.ToInt32(tbDias.Text, 10);
+            if (tbDias.Text != "")
+                SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar = Convert.ToInt32(tbDias.Text, 10);
+            else
+                SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar = 0;
             // SBO_VID_Currency.Properties.Settings.Default.Consola = cbConsola.Checked;
             // SBO_VID_Currency.Properties.Settings.Default.UseScheduler = cbScheduler.Checked;
             SBO_VID_Currency.Properties.Settings.Default.TipoCambio = cbTipoCambio.SelectedIndex;
@@ -272,6 +280,11 @@ namespace SBO_VID_Currency
                 e.Cancel = true;
             else
                 e.Cancel = false;
+        }
+
+        private void tbDias_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

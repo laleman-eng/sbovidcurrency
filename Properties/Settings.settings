@@ -33,7 +33,7 @@
       <Value Profile="(Default)">sbo1</Value>
     </Setting>
     <Setting Name="WEBPage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://si3.bcentral.cl/Indicadoressiete/secure/Indicadoresdiarios.aspx</Value>
+      <Value Profile="(Default)">http://localhost:44398/api/tipoCambio/tcbydate/</Value>
     </Setting>
     <Setting Name="Dolar" Type="System.String" Scope="User">
       <Value Profile="(Default)">USD</Value>

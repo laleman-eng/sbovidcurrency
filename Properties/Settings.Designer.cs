@@ -145,7 +145,7 @@ namespace SBO_VID_Currency.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://si3.bcentral.cl/Indicadoressiete/secure/Indicadoresdiarios.aspx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44398/api/tipoCambio/tcbydate/")]
         public string WEBPage {
             get {
                 return ((string)(this["WEBPage"]));

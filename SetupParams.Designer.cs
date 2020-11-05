@@ -177,6 +177,7 @@
             "2012",
             "2014",
             "2016",
+            "2017",
             "HANA"});
             this.cbSqlType.Location = new System.Drawing.Point(105, 24);
             this.cbSqlType.Name = "cbSqlType";
@@ -366,6 +367,7 @@
             // 
             // tbDEuro
             // 
+            this.tbDEuro.Enabled = false;
             this.tbDEuro.Location = new System.Drawing.Point(26, 139);
             this.tbDEuro.Name = "tbDEuro";
             this.tbDEuro.Size = new System.Drawing.Size(60, 20);
@@ -373,6 +375,7 @@
             // 
             // tbDUF
             // 
+            this.tbDUF.Enabled = false;
             this.tbDUF.Location = new System.Drawing.Point(26, 163);
             this.tbDUF.Name = "tbDUF";
             this.tbDUF.Size = new System.Drawing.Size(60, 20);
@@ -380,6 +383,7 @@
             // 
             // tbDDolar
             // 
+            this.tbDDolar.Enabled = false;
             this.tbDDolar.Location = new System.Drawing.Point(26, 116);
             this.tbDDolar.Name = "tbDDolar";
             this.tbDDolar.Size = new System.Drawing.Size(60, 20);
@@ -387,6 +391,7 @@
             // 
             // cbTipoCambio
             // 
+            this.cbTipoCambio.Enabled = false;
             this.cbTipoCambio.FormattingEnabled = true;
             this.cbTipoCambio.Items.AddRange(new object[] {
             "Directo",
@@ -400,6 +405,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Enabled = false;
             this.label7.Location = new System.Drawing.Point(6, 23);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 13);
@@ -408,7 +414,6 @@
             // 
             // tbPaginaWEB
             // 
-            this.tbPaginaWEB.Enabled = false;
             this.tbPaginaWEB.Location = new System.Drawing.Point(117, 319);
             this.tbPaginaWEB.Name = "tbPaginaWEB";
             this.tbPaginaWEB.Size = new System.Drawing.Size(471, 20);
@@ -448,15 +453,16 @@
             this.tbDias.Name = "tbDias";
             this.tbDias.Size = new System.Drawing.Size(40, 20);
             this.tbDias.TabIndex = 21;
+            this.tbDias.TextChanged += new System.EventHandler(this.tbDias_TextChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(178, 348);
+            this.label14.Location = new System.Drawing.Point(227, 349);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(77, 13);
+            this.label14.Size = new System.Drawing.Size(28, 13);
             this.label14.TabIndex = 20;
-            this.label14.Text = "Dias anteriores";
+            this.label14.Text = "Dias";
             // 
             // cbConsola
             // 

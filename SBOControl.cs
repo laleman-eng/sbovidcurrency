@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.Net;
 using System.IO;
-using System.Linq;
 using System.Globalization;
 using VisualD.Core;
 using VisualD.GlobalVid;
 using Newtonsoft.Json.Serialization;
+using System.Reflection;
+using Newtonsoft.Json;
+using SAPbobsCOM;
 
 namespace SBO_VID_Currency
 {
@@ -77,6 +80,91 @@ namespace SBO_VID_Currency
                 return !string.IsNullOrEmpty(json_data) ?  Newtonsoft.Json.JsonConvert.DeserializeObject<T>(json_data) : new T();
             }
         }
+
+
+        public static double restGET(string URL, string Data)
+        {
+            try
+            {
+                var request = WebRequest.Create(URL);
+
+                request.ContentType = "application/json";
+                request.Method = "GET";
+                request.Timeout = 45000;
+                var type = request.GetType();
+                var currentMethod = type.GetProperty("CurrentMethod", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(request);
+
+                var methodType = currentMethod.GetType();
+                methodType.GetField("ContentBodyNotAllowed", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(currentMethod, false);
+
+                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+                {
+                    streamWriter.Write(Data);
+                }
+
+                var response = (HttpWebResponse)request.GetResponse();
+
+                if (((HttpWebResponse)(response)).StatusCode != HttpStatusCode.OK)
+                {
+                    Console.WriteLine("error");
+                }
+
+                using (Stream strReader = response.GetResponseStream())
+                {
+                    if (strReader == null) 
+                        return -1;
+                    using (StreamReader objReader = new StreamReader(strReader))
+                    {
+                        string responseBody = objReader.ReadToEnd();
+
+                        Result result;
+
+                        result = JsonConvert.DeserializeObject<Result>(responseBody);
+                        Console.WriteLine(responseBody);
+                        Console.WriteLine(result.valor);
+                        return result.valor;
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                throw new Exception("Error sendRequest " + ex.Message);
+            }
+        }
+
+        public static string restGETWhitParameter(string URL, string parameter)
+        {
+            try
+            {
+                var request = WebRequest.Create(URL + parameter);
+                request.Method = "GET";
+                request.Timeout = 15000;
+
+                var response = (HttpWebResponse)request.GetResponse();
+
+                if (((HttpWebResponse)(response)).StatusCode != HttpStatusCode.OK)
+                {
+                    Console.WriteLine("error");
+                }
+
+                using (Stream strReader = response.GetResponseStream())
+                {
+                    if (strReader == null)
+                        return"";
+                    using (StreamReader objReader = new StreamReader(strReader))
+                    {
+                        string responseString  = objReader.ReadToEnd();
+                        return responseString;
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                throw new Exception("Error sendRequest " + ex.Message);
+            }
+        }
+
+
         
         public void Doit(ref int nErr, ref string sErr)
         {
@@ -105,7 +193,7 @@ namespace SBO_VID_Currency
 
                     if (oCompany.Connected)
                     {
-                        processCurrency(oCompany);
+                            processCurrency(oCompany);
                         oCompany.Disconnect();
                     }
                 }
@@ -141,7 +229,9 @@ namespace SBO_VID_Currency
                     break;
                 case 4: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_MSSQL2016;
                     break;
-                case 5: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_HANADB;
+                case 5: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_MSSQL2017;
+                    break;
+                case 6: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_HANADB;
                     break;
             }
             oCompany.UseTrusted = false;
@@ -243,114 +333,50 @@ namespace SBO_VID_Currency
 
             // Validar definicion de monedas
             if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
-                oSql = "Select Count(*) Cant       " +
-                       "  from OCRN                " +
-                       "where \"CurrCode\" = '{0}' ";
+                oSql = @"SELECT ""CurrCode"", ""CurrName""    
+                        FROM ""OCRN"" WHERE ""Locked"" = 'N' ";
             else
-                oSql = "Select Count(*) Cant   " +
-                       "  from OCRN            " +
-                       "where CurrCode = '{0}' ";
+                oSql = "SELECT CurrCode, CurrName  " +
+                       "FROM OCRN            " +
+                       "WHERE Locked = 'N' ";
 
-            oRS.DoQuery(string.Format(oSql, SBO_VID_Currency.Properties.Settings.Default.Dolar));
-            if ((Int32)oRS.Fields.Item("Cant").Value > 0)
-                bDolar = true;
-            oRS.DoQuery(string.Format(oSql, SBO_VID_Currency.Properties.Settings.Default.Euro));
-            if ((Int32)oRS.Fields.Item("Cant").Value > 0)
-                bEuro = true;
-            oRS.DoQuery(string.Format(oSql, SBO_VID_Currency.Properties.Settings.Default.UF));
-            if ((Int32)oRS.Fields.Item("Cant").Value > 0)
-                bUF = true;
-            oRS.DoQuery(string.Format(oSql, SBO_VID_Currency.Properties.Settings.Default.DolarI));
-            if ((Int32)oRS.Fields.Item("Cant").Value > 0)
-                bDolarI = true;
-            oRS.DoQuery(string.Format(oSql, SBO_VID_Currency.Properties.Settings.Default.EuroI));
-            if ((Int32)oRS.Fields.Item("Cant").Value > 0)
-                bEuroI = true;
-            oRS.DoQuery(string.Format(oSql, SBO_VID_Currency.Properties.Settings.Default.UFI));
-            if ((Int32)oRS.Fields.Item("Cant").Value > 0)
-                bUFI = true;
-
-
-
-            // Get rates
-            Fecha = Fecha.AddDays(-41);
-            year = Fecha.Year;
-            month = Fecha.Month;
-            day = Fecha.Day;
-             
-            //dolar
-            //var url = "http://api.sbif.cl/api-sbifv3/recursos_api/dolar/posteriores/2017/01?apikey=c5656cd39657cf74083e0da48b1960e7963b4340&formato=json";
-            Moneda = "Dolar";
-            var urlDolar = "http://api.sbif.cl/api-sbifv3/recursos_api/" + Moneda + "/posteriores/" + year.ToString() + "/" + month.ToString() + "/dias/" + day.ToString() + "?apikey=" + ApiKey + "&formato=json";
-            //euro
-            //var url = "http://api.sbif.cl/api-sbifv3/recursos_api/euro/posteriores/2017/01?apikey=c5656cd39657cf74083e0da48b1960e7963b4340&formato=json";
-            Moneda = "Euro";
-            var urlEuro = "http://api.sbif.cl/api-sbifv3/recursos_api/" + Moneda + "/posteriores/" + year.ToString() + "/" + month.ToString() + "/dias/" + day.ToString() + "?apikey=" + ApiKey + "&formato=json";
-            //uf
-            //var url = "http://api.sbif.cl/api-sbifv3/recursos_api/uf/periodo/2017/2017?apikey=c5656cd39657cf74083e0da48b1960e7963b4340&formato=json";
-            Moneda = "UF";
-            var urlUF = "http://api.sbif.cl/api-sbifv3/recursos_api/" + Moneda + "/posteriores/" + year.ToString() + "/" + month.ToString() + "/dias/" + day.ToString() + "?apikey=" + ApiKey + "&formato=json";
-
-            var currencyRatesDolar = _download_serialized_json_data<CurrencyRates>(urlDolar);
-            var currencyRatesEuro  = _download_serialized_json_data<CurrencyRates>(urlEuro);
-            var currencyRatesUF    = _download_serialized_json_data<CurrencyRates>(urlUF); 
-
-            //Cambiar orden del diccionario
-
-            // Construir datos de tasas de cambio
-            oTasasCambio.Clear();
-            foreach (KeyValuePair<Decimal, DateTime> item in ((CurrencyRates)currencyRatesUF).Rates)
+            oRS.DoQuery(oSql);
+            if (oRS.RecordCount > 0)
             {
-                oTasaCambioSBO.Fecha = (DateTime)item.Value;
-                oTasaCambioSBO.UF = (Decimal)item.Key;
-                oTasaCambioSBO.Dolar = 0.0M;
-                oTasaCambioSBO.Euro = 0.0M;
-                oTasasCambio.Add( oTasaCambioSBO );
-            }
+                int j = 1;
+                if (SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar != 0)
+                    j = 2;
+                for (int x = 0; x < j; x++)
+                {
+                    if (x == 1)
+                        Fecha = Fecha.AddDays(SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar);
+                    
+                    string dateFormat = Fecha.ToString("yyyy-MM-dd");
+                    string url = SBO_VID_Currency.Properties.Settings.Default.WEBPage;
+                    string responseRest = restGETWhitParameter(url, dateFormat);
+                    if (responseRest != "")
+                    {
+                        var listTC = JsonConvert.DeserializeObject<List<TC>>(responseRest);
 
-            AuxDict.Clear();
-            foreach (KeyValuePair<Decimal, DateTime> item in ((CurrencyRates)currencyRatesDolar).Rates)
-            {
-                AuxDict.Add(item.Value, item.Key);
-            }
-            valor = AuxDict.Values.ElementAt(AuxDict.Count - 1);
-            for (int i = AuxDict.Count - 1; i >= 0; i--)
-            {
-                if (AuxDict.Values.ElementAt(i) == 0.0M)
-                    AuxDict[ AuxDict.Keys.ElementAt(i) ] = valor;
-                valor = AuxDict.Values.ElementAt(i);
-            }
-            foreach (TasaCambioSBO item in oTasasCambio)
-            {
-                if (AuxDict.TryGetValue(item.Fecha, out valor))
-                    item.Dolar = valor;
-            }
+                        for (int i = 0; i < oRS.RecordCount; i++)  //Monedas en SAP
+                        {
+                            string moneda = ((System.String)oRS.Fields.Item("CurrCode").Value).Trim();
 
-            AuxDict.Clear();
-            foreach (KeyValuePair<Decimal, DateTime> item in ((CurrencyRates)currencyRatesEuro).Rates)
-            {
-                AuxDict.Add(item.Value, item.Key);
-            }
-            valor = AuxDict.Values.ElementAt(AuxDict.Count - 1);
-            for (int i = AuxDict.Count - 1; i >= 0; i--)
-            {
-                if (AuxDict.Values.ElementAt(i) == 0.0M)
-                    AuxDict[AuxDict.Keys.ElementAt(i)] = valor;
-                valor = AuxDict.Values.ElementAt(i);
-            }
-            foreach (TasaCambioSBO item in oTasasCambio)
-            {
-                if (AuxDict.TryGetValue(item.Fecha, out valor))
-                    item.Euro = valor;
-            }
+                            for (int y = 0; y < listTC.Count; y++)
+                            {
+                                if (moneda == listTC[y].codigo)
+                                {
+                                    UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
+                                    y = listTC.Count;
+                                }
+                            }
+                            oRS.MoveNext();
+                        }
+                        oRS.MoveFirst();
+                    }
+                }
 
-
-
-            for (int i = 0; i < oTasasCambio.Count; i++)
-            {
-                oTasaCambioSBO = oTasasCambio[i];
-                sFecha = oTasaCambioSBO.Fecha.ToString("yyyyMMdd");
-
+                sFecha = Fecha.ToString("yyyyMMdd");
                 if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
                     oRS.DoQuery("select distinct \"RateDate\" from  \"ORTT\" " +
                                 " where \"RateDate\" >= TO_DATE('" + sFecha + "', 'YYYYMMDD') " +
@@ -359,14 +385,43 @@ namespace SBO_VID_Currency
                     oRS.DoQuery("select distinct RateDate from  ORTT " +
                                 " where RateDate >= CONVERT(datetime,'" + sFecha + "',112) " +
                                 " order by RateDate ");
-
-
-
-                UpdateSBO(ref oCompany, oTasaCambioSBO.Fecha, (Double)oTasaCambioSBO.Dolar, (Double)oTasaCambioSBO.Euro, (Double)oTasaCambioSBO.UF, ref pSBObob);
             }
-     
+
         }
 
+        private void UpdateSBOSAP(ref SAPbobsCOM.Company oCompany, DateTime FecActSBO, Double USDObs, ref SAPbobsCOM.SBObob oSBObob, string moneda)
+        {
+
+            try
+            {
+                //if (SBO_VID_Currency.Properties.Settings.Default.TipoCambio == 1)
+                //{
+                //    cambioIndirecto = true;
+                //    if (SBO_VID_Currency.Properties.Settings.Default.MonedaBaseIndirecta == "E")
+                //        MonedaBase = EU;
+                //    else
+                //        MonedaBase = USDObs;
+                //}
+                string s;
+
+                try
+                {
+                    //s = SBO_VID_Currency.Properties.Settings.Default.Dolar;
+                    if  ((moneda != "") && (moneda != null))
+                        oSBObob.SetCurrencyRate(moneda, FecActSBO, USDObs, false);
+                }
+                catch
+                {
+
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                oLog.LogMsg("Error al actualizar tasa de cambio en SBO - " + e.Message, "A", "E");
+            }
+        }
 
 
         private void UpdateSBO(ref SAPbobsCOM.Company oCompany, DateTime FecActSBO, Double USDObs, Double EU, Double Uefe, ref SAPbobsCOM.SBObob oSBObob)

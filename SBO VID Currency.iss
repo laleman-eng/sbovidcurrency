@@ -26,29 +26,27 @@ Compression=lzma
 SolidCompression=yes
 
 [Languages]
-Name: "english"; MessagesFile: "compiler:Default.isl"
+Name: english; MessagesFile: compiler:Default.isl
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked
 
 [Files]
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\SBO VID Currency_Secure\SBO VID Currency.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\SBO VID Currency_Secure\SBO VID Currency.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\SBO VID Currency.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.Core.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.GlobalVid.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.GlobalVid.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.uEncrypt.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\VisualD.uEncrypt.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\HtmlAgilityPack.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\HtmlAgilityPack.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\HtmlAgilityPack.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\Interop.SAPbobsCOM.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\IOP\Documents\SBO\SBO VID Currency\bin\x86\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\SBO VID Currency.exe; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\SBO VID Currency.pdb; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\SBO VID Currency.exe.config; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.Core.dll; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.Core.pdb; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.GlobalVid.dll; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.GlobalVid.pdb; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.uEncrypt.dll; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.uEncrypt.pdb; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\Newtonsoft.Json.dll; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\Newtonsoft.Json.xml; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\SAP 90 x86\Interop.SAPbobsCOM.dll; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll; DestDir: {app}; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: {group}\{#MyAppName}; Filename: {app}\{#MyAppExeName}
+Name: {commondesktop}\{#MyAppName}; Filename: {app}\{#MyAppExeName}; Tasks: desktopicon
