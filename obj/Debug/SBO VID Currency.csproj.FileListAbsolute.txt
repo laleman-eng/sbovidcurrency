@@ -43,6 +43,7 @@ C:\VisualK\SBOVIDCurrency\bin\Debug\SBO VID Currency.exe
 C:\VisualK\SBOVIDCurrency\bin\Debug\SBO VID Currency.pdb
 C:\VisualK\SBOVIDCurrency\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
 C:\VisualK\SBOVIDCurrency\bin\Debug\Newtonsoft.Json.dll
+C:\VisualK\SBOVIDCurrency\bin\Debug\SAPBusinessOneSDK.dll
 C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.Core.dll
 C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.GlobalVid.dll
 C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.uEncrypt.dll

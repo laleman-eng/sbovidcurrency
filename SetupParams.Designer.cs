@@ -132,9 +132,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(13, 101);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 13);
+            this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 18;
-            this.label4.Text = "Contraseña SQL";
+            this.label4.Text = "Contraseña BD";
             // 
             // tbDBUser
             // 
@@ -148,9 +148,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Usuario SQL";
+            this.label3.Text = "Usuario BD";
             // 
             // tbServidor
             // 
