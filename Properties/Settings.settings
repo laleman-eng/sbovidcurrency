@@ -32,9 +32,6 @@
     <Setting Name="SBOPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)">sbo1</Value>
     </Setting>
-    <Setting Name="WEBPage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://localhost:44398/api/tipoCambio/tcbydate/</Value>
-    </Setting>
     <Setting Name="Dolar" Type="System.String" Scope="User">
       <Value Profile="(Default)">USD</Value>
     </Setting>
@@ -70,6 +67,12 @@
     </Setting>
     <Setting Name="MonedaBaseIndirecta" Type="System.String" Scope="User">
       <Value Profile="(Default)">D</Value>
+    </Setting>
+    <Setting Name="WEBPage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://resttc.planetsoft.cl/api/tipocambio/tcbydate/</Value>
+    </Setting>
+    <Setting Name="conexionSAP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">true</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -145,18 +145,6 @@ namespace SBO_VID_Currency.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44398/api/tipoCambio/tcbydate/")]
-        public string WEBPage {
-            get {
-                return ((string)(this["WEBPage"]));
-            }
-            set {
-                this["WEBPage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("USD")]
         public string Dolar {
             get {
@@ -296,6 +284,30 @@ namespace SBO_VID_Currency.Properties {
             }
             set {
                 this["MonedaBaseIndirecta"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://resttc.planetsoft.cl/api/tipocambio/tcbydate/")]
+        public string WEBPage {
+            get {
+                return ((string)(this["WEBPage"]));
+            }
+            set {
+                this["WEBPage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("true")]
+        public string conexionSAP {
+            get {
+                return ((string)(this["conexionSAP"]));
+            }
+            set {
+                this["conexionSAP"] = value;
             }
         }
     }
