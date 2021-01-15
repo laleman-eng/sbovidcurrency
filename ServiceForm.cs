@@ -87,7 +87,7 @@ namespace SBO_VID_Currency
 
                 oLog.LogMsg("Before Doit", "F", "D");
                 SBOCtrl.Doit(ref nError, ref sMsg);
-
+                //System.Environment.Exit(0); //cierrpo app
                 //SBOCtrl.Doit(ref nError, ref sMsg, ref LastUpdateDateCurrency); antes
             }
             catch (Exception eX)

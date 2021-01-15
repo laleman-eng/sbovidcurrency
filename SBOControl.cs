@@ -11,6 +11,8 @@ using Newtonsoft.Json.Serialization;
 using System.Reflection;
 using Newtonsoft.Json;
 using SAPbobsCOM;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace SBO_VID_Currency
 {
@@ -39,7 +41,7 @@ namespace SBO_VID_Currency
         }
 
         //Methods
-        private void GetParameters(SAPbobsCOM.Company oCompany)
+        private void GetParameters()
         {
             globals.CompanyList.Clear();
             string[] separador = new string[] { ";" };
@@ -57,6 +59,13 @@ namespace SBO_VID_Currency
             globals.DolarObs = SBO_VID_Currency.Properties.Settings.Default.Dolar;
             globals.Euro = SBO_VID_Currency.Properties.Settings.Default.Euro;
             globals.UF = SBO_VID_Currency.Properties.Settings.Default.UF;
+            globals.conexionSAP =   bool.Parse(SBO_VID_Currency.Properties.Settings.Default.conexionSAP);
+            globals.SQLType = SBO_VID_Currency.Properties.Settings.Default.SQLType;
+            globals.server = SBO_VID_Currency.Properties.Settings.Default.SBOServer;
+            globals.DBUser = SBO_VID_Currency.Properties.Settings.Default.DBUserName;
+            globals.DBPass = Crypt.Decrypt(SBO_VID_Currency.Properties.Settings.Default.DBPassword, "VIDCurrency0-09");
+                
+
             if (!globals.TipoCambioDirecto)
             {
                 globals.DolarObsI = SBO_VID_Currency.Properties.Settings.Default.DolarI;
@@ -169,40 +178,134 @@ namespace SBO_VID_Currency
         public void Doit(ref int nErr, ref string sErr)
         {
             SAPbobsCOM.Company oCompany = null; // The company object
+            SqlConnection cnn = null; 
             int i;
 
             try
             {
-                if (oCompany == null)
-                    oCompany = new SAPbobsCOM.Company();
+                GetParameters();
 
-                GetParameters(oCompany);
-
-                for (i = 0; i < globals.CompanyList.Count; i++)
+                if (globals.conexionSAP) //trabajando con DIAPI
                 {
-                    if (!oCompany.Connected)
+                    if (oCompany == null)
+                        oCompany = new SAPbobsCOM.Company();
+
+                    for (i = 0; i < globals.CompanyList.Count; i++)
                     {
-                        ConnectSBO(ref oCompany, ref nErr, ref sErr, (String)globals.CompanyList[i]);
+                        if (!oCompany.Connected)
+                        {
+                            ConnectSBO(ref oCompany, ref nErr, ref sErr, (String)globals.CompanyList[i]);
+                            if (nErr != 0)
+                            {
+                                oLog.LogMsg(sErr, "F", "E");
+                                oCompany.Disconnect();
+                                return;
+                            }
+                        }
+
+                        if (oCompany.Connected)
+                        {
+                            processCurrency(oCompany);
+                            oCompany.Disconnect();
+                        }
+                    }
+                }
+                else // conexion DB
+                {
+                    if (cnn == null)
+                        cnn = new SqlConnection();
+
+                    for (i = 0; i < globals.CompanyList.Count; i++)
+                    {
+                        conectarDBSQL((String)globals.CompanyList[i], ref sErr, ref nErr, ref cnn);
                         if (nErr != 0)
                         {
                             oLog.LogMsg(sErr, "F", "E");
-                            oCompany.Disconnect();
+                            cnn.Close();
                             return;
                         }
-                    }
-
-                    if (oCompany.Connected)
-                    {
-                            processCurrency(oCompany);
-                        oCompany.Disconnect();
+                        if (cnn.State == System.Data.ConnectionState.Open)
+                        {
+                            processCurrencyDB(cnn);
+                            cnn.Close();
+                        }
                     }
                 }
+
+                oLog.LogMsg("Proceso finalizado " , "F", "E");
+                System.Environment.Exit(0);
             }
             catch (Exception e)
             {
                 oLog.LogMsg("Error en ejecución de servicio " + e.Message, "F", "E");
                 if (oCompany.Connected)
                     oCompany.Disconnect();
+            }
+        }
+
+        private void conectarDBSQL(string BD, ref string sErr, ref int nErr, ref SqlConnection cnn)
+        {
+            //SqlConnection cnn = null;
+            string s = "Password={0};Persist Security Info=True;User ID={1};Initial Catalog={2};Data Source={3}";
+            VisualD.Core.TVisualDCore Core;
+            sErr = "";
+            nErr = 0;
+
+            try 
+            {
+                s = String.Format(s, globals.DBPass, globals.DBUser, BD, globals.server);
+                oLog.LogMsg("try connect", "F", "D");
+                cnn = new SqlConnection(s);
+                cnn.Open();
+
+                s = "select InstallNo, GetDate() Fec from cinf";
+                var command = new SqlCommand(s, cnn);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string InstallId = ((System.String)reader.GetValue(0)).Trim();
+                        DateTime Fec = ((System.DateTime)reader.GetValue(1));
+                        TGlobalAddOnOptions FOpcionAddOn = new TGlobalAddOnOptions();
+                        List<String> FAddonsList = new List<String>();
+                        string oK = "C9A80FB4-D8C3-11E0-AEAD-7E944824019B";
+                        oLog.LogMsg("Before accept", "F", "D");
+                        Core = new VisualD.Core.TVisualDCore(InstallId, Fec, ref FOpcionAddOn, ref oK, FAddonsList);
+                        if (Core.ExitApp)
+                        {
+                            sErr = "Licencia " + Core.Error;
+                            nErr = -2;
+                            cnn.Close();
+                        }
+                        else if (oK != "E6DCA176-D8C3-11E0-93B0-86944824019B")
+                        {
+                            sErr = "VisualDCore enlace 2 inválido.";
+                            nErr = -3;
+                            cnn.Close();
+                        }
+                        else
+                            sErr = "OK";
+
+                        if (Core.EsDEmo)
+                            oLog.LogMsg("Licencia de demostración " + Core.AddOnName, "F", "E");
+
+                        oLog.LogMsg("after accept", "F", "D");
+
+                        oLog.LogMsg("Conexión a SBO: " + BD + " - " + sErr, "F", "E");
+
+                    }
+                    else
+                    {
+                        sErr = "Installation Number no encontrado";
+                        nErr = -1;
+                        return;
+                    }
+                    
+                }
+            }
+            catch (Exception e)
+            {
+                oLog.LogMsg("Conexión BD: " + BD + " - " + sErr, "F", "E");
             }
         }
 
@@ -389,6 +492,110 @@ namespace SBO_VID_Currency
 
         }
 
+        private void processCurrencyDB(SqlConnection cnn)
+        {
+            
+            TasaCambioSBO oTasaCambioSBO = new TasaCambioSBO();
+            List<TasaCambioSBO> oTasasCambio = new List<TasaCambioSBO>();
+            DateTime Fecha = DateTime.Now;
+            Int32 year;
+            Int32 month;
+            Int32 day;
+            Decimal valor;
+
+            Dictionary<DateTime, Decimal> AuxDict = new Dictionary<DateTime, decimal>();
+            String ApiKey = "c5656cd39657cf74083e0da48b1960e7963b4340";
+            String sFecha;
+            String oSql;
+            String Moneda;
+
+            Boolean bDolar = false;
+            Boolean bEuro = false;
+            Boolean bUF = false;
+            Boolean bDolarI = false;
+            Boolean bEuroI = false;
+            Boolean bUFI = false;
+
+            // Validar definicion de monedas
+            oSql = "SELECT CurrCode, CurrName  " +
+                       "FROM OCRN            " +
+                       "WHERE Locked = 'N' ";
+
+            var command = new SqlCommand(oSql, cnn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
+                    int j = 1;
+                    if (SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar != 0)
+                        j = 2;
+
+                    for (int x = 0; x < j; x++)
+                    {
+                        if (x == 1)
+                            Fecha = Fecha.AddDays(SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar);
+
+                        string dateFormat = Fecha.ToString("yyyy-MM-dd");
+                        string url = SBO_VID_Currency.Properties.Settings.Default.WEBPage;
+                        string responseRest = restGETWhitParameter(url, dateFormat);
+                        if (responseRest != "")
+                        {
+                            var listTC = JsonConvert.DeserializeObject<List<TC>>(responseRest);
+
+                            foreach (DataRow drow in dataTable.Rows)
+                            {
+                                string moneda = System.Convert.ToString(drow["CurrCode"]);
+
+                                for (int y = 0; y < listTC.Count; y++)
+                                {
+                                    if (moneda == listTC[y].codigo)
+                                    {
+                                        UpdateSBOSAPBD(ref cnn, Fecha, (Double)listTC[y].valor, moneda);
+                                        y = listTC.Count;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void UpdateSBOSAPBD(ref SqlConnection cnn, DateTime FecActSBO, Double USDObs, string moneda)
+        {
+            int count = 0;
+            try
+            {
+                string dateFormat = FecActSBO.ToString("yyyyMMdd");
+                string s =  "SELECT count(*) FROM ORTT WHERE Currency = '{0}' AND RateDate = '{1}' ";
+                s = String.Format(s, moneda, dateFormat);
+                using (SqlCommand command = new SqlCommand(s, cnn))
+                {
+                    count = (int)command.ExecuteScalar();
+                    if (count == 0) //si no existe tpo cambio para ese dia 
+                    {
+                        s = "INSERT INTO ORTT (RateDate,Currency,Rate,DataSource,UserSign) VALUES ('{0}','{1}',{2},'{3}',{4})";
+                        s = String.Format(s, dateFormat, moneda, USDObs, 'P', 1);
+                        command.CommandText = s;
+                        try
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        catch (Exception e)
+                        {
+                            oLog.LogMsg("Error al actualizar tasa de cambio en SBO SCRIPT " + e.Message, "A", "E");
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                oLog.LogMsg("Error al actualizar tasa de cambio en SBO - " + e.Message, "A", "E");
+            }
+        }
+
         private void UpdateSBOSAP(ref SAPbobsCOM.Company oCompany, DateTime FecActSBO, Double USDObs, ref SAPbobsCOM.SBObob oSBObob, string moneda)
         {
 
@@ -410,9 +617,9 @@ namespace SBO_VID_Currency
                     if  ((moneda != "") && (moneda != null))
                         oSBObob.SetCurrencyRate(moneda, FecActSBO, USDObs, false);
                 }
-                catch
+                catch (Exception e)
                 {
-
+                    //oLog.LogMsg("Error al actualizar tasa de cambio en SBO " + e.Message, "A", "E");
                 }
 
 

@@ -16,6 +16,11 @@ namespace SBO_VID_Currency
         public static string UFI;
         public static string SBOUser;
         public static string SBOPass;
-        public static bool TipoCambioDirecto; 
+        public static string DBUser;
+        public static string DBPass;
+        public static bool TipoCambioDirecto;
+        public static bool conexionSAP;
+        public static int SQLType;
+        public static string server; 
     }
 }

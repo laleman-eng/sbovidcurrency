@@ -72,7 +72,7 @@
       <Value Profile="(Default)">http://resttc.planetsoft.cl/api/tipocambio/tcbydate/</Value>
     </Setting>
     <Setting Name="conexionSAP" Type="System.String" Scope="User">
-      <Value Profile="(Default)">true</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

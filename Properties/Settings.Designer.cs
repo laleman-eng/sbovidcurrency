@@ -301,7 +301,7 @@ namespace SBO_VID_Currency.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("true")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public string conexionSAP {
             get {
                 return ((string)(this["conexionSAP"]));
