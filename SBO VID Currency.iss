@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "SBO VID Currency"
-#define MyAppVersion "2.1.8"
+#define MyAppVersion "2.1.9"
 #define MyAppPublisher "VisualD"
 #define MyAppURL "http://www.visuald.cl"
 #define MyAppExeName "SBO VID Currency.exe"

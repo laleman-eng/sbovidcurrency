@@ -446,48 +446,43 @@ namespace SBO_VID_Currency
             oRS.DoQuery(oSql);
             if (oRS.RecordCount > 0)
             {
-                int j = 1;
-                if (SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar != 0)
-                    j = 2;
-                for (int x = 0; x < j; x++)
-                {
-                    if (x == 1)
-                        Fecha = Fecha.AddDays(SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar);
-                    
-                    string dateFormat = Fecha.ToString("yyyy-MM-dd");
-                    string url = SBO_VID_Currency.Properties.Settings.Default.WEBPage;
-                    string responseRest = restGETWhitParameter(url, dateFormat);
-                    if (responseRest != "")
+                int diasAProcesar = SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar;
+                    for (int x = diasAProcesar; x <= 0; x++)
                     {
-                        var listTC = JsonConvert.DeserializeObject<List<TC>>(responseRest);
-
-                        for (int i = 0; i < oRS.RecordCount; i++)  //Monedas en SAP
+                        Fecha = Fecha.AddDays(x);
+                        string dateFormat = Fecha.ToString("yyyy-MM-dd");
+                        string url = SBO_VID_Currency.Properties.Settings.Default.WEBPage;
+                        string responseRest = restGETWhitParameter(url, dateFormat);
+                        if (responseRest != "[]")
                         {
-                            string moneda = ((System.String)oRS.Fields.Item("CurrCode").Value).Trim();
-
-                            for (int y = 0; y < listTC.Count; y++)
+                            var listTC = JsonConvert.DeserializeObject<List<TC>>(responseRest);
+                            for (int i = 0; i < oRS.RecordCount; i++)  //Monedas en SAP
                             {
-                                if (moneda == listTC[y].codigo)
+                                string moneda = ((System.String)oRS.Fields.Item("CurrCode").Value).Trim();
+                                for (int y = 0; y < listTC.Count; y++)
                                 {
-                                    UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
-                                    y = listTC.Count;
+                                    if (moneda == listTC[y].codigo)
+                                    {
+                                        UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
+                                        y = listTC.Count;
+                                    }
                                 }
+                                oRS.MoveNext();
                             }
-                            oRS.MoveNext();
+                            oRS.MoveFirst();
                         }
-                        oRS.MoveFirst();
-                    }
-                }
+                        Fecha = DateTime.Now;
+                   }
 
-                sFecha = Fecha.ToString("yyyyMMdd");
-                if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
-                    oRS.DoQuery("select distinct \"RateDate\" from  \"ORTT\" " +
-                                " where \"RateDate\" >= TO_DATE('" + sFecha + "', 'YYYYMMDD') " +
-                                " order by \"RateDate\" ");
-                else
-                    oRS.DoQuery("select distinct RateDate from  ORTT " +
-                                " where RateDate >= CONVERT(datetime,'" + sFecha + "',112) " +
-                                " order by RateDate ");
+                //sFecha = Fecha.ToString("yyyyMMdd");
+                //if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
+                //    oRS.DoQuery("select distinct \"RateDate\" from  \"ORTT\" " +
+                //                " where \"RateDate\" >= TO_DATE('" + sFecha + "', 'YYYYMMDD') " +
+                //                " order by \"RateDate\" ");
+                //else
+                //    oRS.DoQuery("select distinct RateDate from  ORTT " +
+                //                " where RateDate >= CONVERT(datetime,'" + sFecha + "',112) " +
+                //                " order by RateDate ");
             }
 
         }
@@ -528,26 +523,19 @@ namespace SBO_VID_Currency
                 {
                     DataTable dataTable = new DataTable();
                     dataTable.Load(reader);
-                    int j = 1;
-                    if (SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar != 0)
-                        j = 2;
-
-                    for (int x = 0; x < j; x++)
+                    int diasAProcesar = SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar;
+                    for (int x = diasAProcesar; x <= 0; x++)
                     {
-                        if (x == 1)
-                            Fecha = Fecha.AddDays(SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar);
-
+                        Fecha = Fecha.AddDays(x);
                         string dateFormat = Fecha.ToString("yyyy-MM-dd");
                         string url = SBO_VID_Currency.Properties.Settings.Default.WEBPage;
                         string responseRest = restGETWhitParameter(url, dateFormat);
-                        if (responseRest != "")
+                        if (responseRest != "[]")
                         {
                             var listTC = JsonConvert.DeserializeObject<List<TC>>(responseRest);
-
                             foreach (DataRow drow in dataTable.Rows)
                             {
                                 string moneda = System.Convert.ToString(drow["CurrCode"]);
-
                                 for (int y = 0; y < listTC.Count; y++)
                                 {
                                     if (moneda == listTC[y].codigo)
@@ -558,6 +546,7 @@ namespace SBO_VID_Currency
                                 }
                             }
                         }
+                        Fecha = DateTime.Now;
                     }
                 }
             }
