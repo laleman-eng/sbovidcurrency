@@ -42,7 +42,10 @@ namespace Logs
         /// Constructor
         public FileLog()
         {
-            this.FileName = "C:\\tmp1\\VID_SBOService.log";
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string directory = System.IO.Path.GetDirectoryName(path) + "/VID_SBOService.log";
+            this.FileName = directory;
+            //this.FileName = "C:\\tmp1\\VID_SBOService.log";
             if (SBO_VID_Currency.Properties.Settings.Default.LogFile != "")
             {
                 this.FileName = SBO_VID_Currency.Properties.Settings.Default.LogFile;
