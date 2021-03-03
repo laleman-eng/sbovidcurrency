@@ -231,8 +231,9 @@ namespace SBO_VID_Currency
                         }
                     }
                 }
-
-                oLog.LogMsg("Proceso finalizado " , "F", "E");
+                oLog.LogMsg("Proceso finalizado " , "F", "I");
+                System.Threading.Thread.Sleep(8000);
+                
                 System.Environment.Exit(0);
             }
             catch (Exception e)
@@ -305,7 +306,7 @@ namespace SBO_VID_Currency
             }
             catch (Exception e)
             {
-                oLog.LogMsg("Conexión BD: " + BD + " - " + sErr, "F", "E");
+                oLog.LogMsg("Conexión BD: " + BD + " " + sErr + "Exeption: "+ e.Message , "F", "E");
             }
         }
 
@@ -399,13 +400,13 @@ namespace SBO_VID_Currency
                     sErr = "OK";
 
                 if (Core.EsDEmo)
-                    oLog.LogMsg("Licencia de demostración " + Core.AddOnName, "F", "E");
+                    oLog.LogMsg("Licencia de demostracion " + Core.AddOnName, "F", "W");
 
 
                 oLog.LogMsg("after accept", "F", "D");
             }
 
-            oLog.LogMsg("Conexión a SBO: " + CompanyName + " - " + sErr, "F", "E");
+            oLog.LogMsg("Conexion a SBO: " + CompanyName + " - " + sErr, "F", "I");
         }
 
         private void processCurrency(SAPbobsCOM.Company oCompany)
@@ -416,41 +417,38 @@ namespace SBO_VID_Currency
             TasaCambioSBO oTasaCambioSBO = new TasaCambioSBO();
             List<TasaCambioSBO> oTasasCambio = new List<TasaCambioSBO>();
             DateTime Fecha = DateTime.Now;
-            Int32 year;
-            Int32 month;
-            Int32 day;
-            Decimal valor;
-
             Dictionary<DateTime, Decimal> AuxDict = new Dictionary<DateTime, decimal>();
-            String ApiKey = "c5656cd39657cf74083e0da48b1960e7963b4340";
-            String sFecha;
-            String oSql;
-            String Moneda;
+            //String ApiKey = "c5656cd39657cf74083e0da48b1960e7963b4340";
 
-            Boolean bDolar = false;
-            Boolean bEuro = false;
-            Boolean bUF = false;
-            Boolean bDolarI = false;
-            Boolean bEuroI = false;
-            Boolean bUFI = false;
+            String oSql;
+            int diasAProcesar;
 
             // Validar definicion de monedas
             if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
-                oSql = @"SELECT ""CurrCode"", ""CurrName""    
-                        FROM ""OCRN"" WHERE ""Locked"" = 'N' ";
+                oSql = @"SELECT ""CurrCode"", ""CurrName"" , ""ISOCurrCod""   
+                        FROM ""OCRN"" 
+                        WHERE ""Locked"" = 'N' ";
             else
-                oSql = "SELECT CurrCode, CurrName  " +
+                oSql = "SELECT CurrCode, CurrName , ISOCurrCod  " +
                        "FROM OCRN            " +
                        "WHERE Locked = 'N' ";
 
             oRS.DoQuery(oSql);
             if (oRS.RecordCount > 0)
             {
-                int diasAProcesar = SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar;
-                    for (int x = diasAProcesar; x <= 0; x++)
+
+                if (SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar > 0)
+                    diasAProcesar = 0;
+                else
+                    diasAProcesar = SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar;
+
+                oLog.LogMsg("Dias a procesar : " + diasAProcesar , "F", "D");
+
+                    for (int x = diasAProcesar; x <= 1; x++)
                     {
                         Fecha = Fecha.AddDays(x);
                         string dateFormat = Fecha.ToString("yyyy-MM-dd");
+                        oLog.LogMsg("Dia: " + dateFormat, "F", "D");
                         string url = SBO_VID_Currency.Properties.Settings.Default.WEBPage;
                         string responseRest = restGETWhitParameter(url, dateFormat);
                         if (responseRest != "[]")
@@ -459,12 +457,24 @@ namespace SBO_VID_Currency
                             for (int i = 0; i < oRS.RecordCount; i++)  //Monedas en SAP
                             {
                                 string moneda = ((System.String)oRS.Fields.Item("CurrCode").Value).Trim();
+                                string monedaISO = ((System.String)oRS.Fields.Item("ISOCurrCod").Value).Trim();
                                 for (int y = 0; y < listTC.Count; y++)
                                 {
                                     if (moneda == listTC[y].codigo)
                                     {
+
+                                        oLog.LogMsg("procesar por CurrCode: " + Fecha + " Currency: " + moneda, "F", "D");
                                         UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
                                         y = listTC.Count;
+                                    }
+                                    else
+                                    {
+                                        if (monedaISO == listTC[y].codigo)
+                                        {
+                                            oLog.LogMsg("procesar por ISOCurrCod: " + Fecha + " Currency: " + monedaISO, "F", "D");
+                                            UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
+                                            y = listTC.Count;
+                                        }
                                     }
                                 }
                                 oRS.MoveNext();
@@ -489,30 +499,15 @@ namespace SBO_VID_Currency
 
         private void processCurrencyDB(SqlConnection cnn)
         {
-            
             TasaCambioSBO oTasaCambioSBO = new TasaCambioSBO();
             List<TasaCambioSBO> oTasasCambio = new List<TasaCambioSBO>();
             DateTime Fecha = DateTime.Now;
-            Int32 year;
-            Int32 month;
-            Int32 day;
-            Decimal valor;
-
             Dictionary<DateTime, Decimal> AuxDict = new Dictionary<DateTime, decimal>();
-            String ApiKey = "c5656cd39657cf74083e0da48b1960e7963b4340";
-            String sFecha;
+            //String ApiKey = "c5656cd39657cf74083e0da48b1960e7963b4340";
             String oSql;
-            String Moneda;
-
-            Boolean bDolar = false;
-            Boolean bEuro = false;
-            Boolean bUF = false;
-            Boolean bDolarI = false;
-            Boolean bEuroI = false;
-            Boolean bUFI = false;
 
             // Validar definicion de monedas
-            oSql = "SELECT CurrCode, CurrName  " +
+            oSql = "SELECT CurrCode, CurrName , ISOCurrCod   " +
                        "FROM OCRN            " +
                        "WHERE Locked = 'N' ";
 
@@ -598,17 +593,20 @@ namespace SBO_VID_Currency
                 //    else
                 //        MonedaBase = USDObs;
                 //}
-                string s;
+                //string s;
 
                 try
                 {
                     //s = SBO_VID_Currency.Properties.Settings.Default.Dolar;
-                    if  ((moneda != "") && (moneda != null))
+                    if ((moneda != "") && (moneda != null))
+                    {
                         oSBObob.SetCurrencyRate(moneda, FecActSBO, USDObs, false);
+                        oLog.LogMsg("Valor a cargar Moneda: " + moneda + " Fecha:" + FecActSBO + " Valor: " + USDObs, "A", "I");
+                    }
                 }
                 catch (Exception e)
                 {
-                    //oLog.LogMsg("Error al actualizar tasa de cambio en SBO " + e.Message, "A", "E");
+                    oLog.LogMsg("Error al actualizar tasa de cambio en SBO " + e.Message, "A", "D");
                 }
 
 

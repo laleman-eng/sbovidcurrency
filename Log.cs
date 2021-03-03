@@ -195,7 +195,7 @@ namespace Logs
         private Log _Logger;
 
         // Internal log type
-        private LogTypes _LogType;
+       // private LogTypes _LogType;
 
         // Mensaje en TextBox
         private System.Windows.Forms.TextBox FTextBoxMsg;
@@ -208,7 +208,7 @@ namespace Logs
 
         public LogTypes LogType
         {
-            get { return this._LogType; }
+          //  get { return this._LogType; }
             set
             {
                 // Set the Logger to the appropriate log when

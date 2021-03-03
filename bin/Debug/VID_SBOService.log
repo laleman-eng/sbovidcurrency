@@ -1,1 +1,331 @@
 Informacion: 2/28/2021 8:37:57 AM - Servicio iniciado
+Informacion: 3/2/2021 5:50:31 PM - Servicio iniciado
+Informacion: 3/2/2021 5:51:32 PM - timer iniciado
+Error: 3/2/2021 5:51:58 PM - Licencia de demostración 
+Informacion: 3/2/2021 5:51:58 PM - Conexión a SBO: AGR_ALMAZARA - OK
+Error: 3/2/2021 5:52:14 PM - Licencia de demostración 
+Informacion: 3/2/2021 5:52:14 PM - Conexión a SBO: CIRUMED_2018 - OK
+Error: 3/2/2021 5:52:25 PM - Licencia de demostración 
+Informacion: 3/2/2021 5:52:25 PM - Conexión a SBO: Prueba_LL - OK
+Error: 3/2/2021 5:52:28 PM - Proceso finalizado 
+Informacion: 3/2/2021 5:53:50 PM - Servicio iniciado
+Informacion: 3/2/2021 5:53:51 PM - timer iniciado
+Error: 3/2/2021 5:54:41 PM - Licencia de demostración 
+Informacion: 3/2/2021 5:54:45 PM - Conexión a SBO: AGR_ALMAZARA - OK
+Informacion: 3/2/2021 9:42:34 PM - Servicio iniciado
+Informacion: 3/3/2021 12:26:59 AM - Servicio iniciado
+Informacion: 3/3/2021 12:27:11 AM - timer iniciado
+Warning: 3/3/2021 12:27:22 AM - Licencia de demostración 
+Informacion: 3/3/2021 12:27:29 AM - Conexion a SBO: AGR_ALMAZARA - OK
+Warning: 3/3/2021 12:27:46 AM - Licencia de demostración 
+Informacion: 3/3/2021 12:27:49 AM - Conexion a SBO: CIRUMED_2018 - OK
+Warning: 3/3/2021 12:28:04 AM - Licencia de demostración 
+Informacion: 3/3/2021 12:28:15 AM - Conexion a SBO: Prueba_LL - OK
+Informacion: 3/3/2021 12:38:31 AM - Servicio iniciado
+Informacion: 3/3/2021 12:46:17 AM - Servicio iniciado
+Informacion: 3/3/2021 12:47:19 AM - timer iniciado
+Warning: 3/3/2021 12:47:30 AM - Licencia de demostración 
+Informacion: 3/3/2021 12:47:37 AM - Conexion a SBO: AGR_ALMAZARA - OK
+Informacion: 3/3/2021 12:51:39 AM - Servicio iniciado
+Informacion: 3/3/2021 12:52:00 AM - timer iniciado
+Warning: 3/3/2021 12:52:09 AM - Licencia de demostración 
+Informacion: 3/3/2021 12:52:27 AM - Servicio iniciado
+Informacion: 3/3/2021 12:52:29 AM - timer iniciado
+Warning: 3/3/2021 12:52:34 AM - Licencia de demostracion 
+Informacion: 3/3/2021 12:52:37 AM - Conexion a SBO: AGR_ALMAZARA - OK
+Informacion: 3/3/2021 12:57:18 AM - Servicio iniciado
+Informacion: 3/3/2021 12:57:22 AM - timer iniciado
+Warning: 3/3/2021 12:57:28 AM - Licencia de demostracion 
+Informacion: 3/3/2021 12:57:28 AM - Conexion a SBO: AGR_ALMAZARA - OK
+Warning: 3/3/2021 12:59:41 AM - Licencia de demostracion 
+Informacion: 3/3/2021 12:59:41 AM - Conexion a SBO: CIRUMED_2018 - OK
+Informacion: 3/3/2021 1:02:30 AM - Servicio iniciado
+Informacion: 3/3/2021 1:02:34 AM - timer iniciado
+Warning: 3/3/2021 1:02:40 AM - Licencia de demostracion 
+Informacion: 3/3/2021 1:02:40 AM - Conexion a SBO: AGR_ALMAZARA - OK
+Informacion: 3/3/2021 1:03:48 AM - Servicio iniciado
+Informacion: 3/3/2021 1:03:50 AM - timer iniciado
+Debug: 3/3/2021 1:03:53 AM - Timer paused
+Debug: 3/3/2021 1:03:53 AM - Before Doit
+Debug: 3/3/2021 1:03:53 AM - ConnectSBO start
+Debug: 3/3/2021 1:03:56 AM - try connect
+Debug: 3/3/2021 1:03:56 AM - Select InstallNo
+Debug: 3/3/2021 1:03:56 AM - Before accept
+Warning: 3/3/2021 1:03:56 AM - Licencia de demostracion 
+Debug: 3/3/2021 1:03:57 AM - after accept
+Informacion: 3/3/2021 1:03:57 AM - Conexion a SBO: AGR_ALMAZARA - OK
+Debug: 3/3/2021 1:03:57 AM - Dias a procesar : 0
+Debug: 3/3/2021 1:04:11 AM - Dia: 2021-03-03
+Debug: 3/3/2021 1:04:16 AM - Before process TC Date: 3/3/2021 1:03:57 AM Currency: EUR SBObob:System.__ComObject
+Debug: 3/3/2021 1:04:16 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Informacion: 3/3/2021 1:05:41 AM - Servicio iniciado
+Informacion: 3/3/2021 1:05:44 AM - timer iniciado
+Debug: 3/3/2021 1:05:47 AM - Timer paused
+Debug: 3/3/2021 1:05:47 AM - Before Doit
+Debug: 3/3/2021 1:05:47 AM - ConnectSBO start
+Debug: 3/3/2021 1:05:49 AM - try connect
+Debug: 3/3/2021 1:05:49 AM - Select InstallNo
+Debug: 3/3/2021 1:05:50 AM - Before accept
+Warning: 3/3/2021 1:05:50 AM - Licencia de demostracion 
+Debug: 3/3/2021 1:05:50 AM - after accept
+Informacion: 3/3/2021 1:05:50 AM - Conexion a SBO: AGR_ALMAZARA - OK
+Debug: 3/3/2021 1:05:50 AM - Dias a procesar : 0
+Debug: 3/3/2021 1:06:00 AM - Dia: 2021-03-03
+Debug: 3/3/2021 1:06:06 AM - Antes de procesar: 3/3/2021 1:05:50 AM Currency: EUR
+Debug: 3/3/2021 1:06:20 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:06:29 AM - Antes de procesar: 3/3/2021 1:05:50 AM Currency: UF
+Debug: 3/3/2021 1:06:29 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:06:32 AM - Antes de procesar: 3/3/2021 1:05:50 AM Currency: USD
+Debug: 3/3/2021 1:06:32 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:06:32 AM - Dia: 2021-03-04
+Debug: 3/3/2021 1:06:32 AM - ConnectSBO start
+Debug: 3/3/2021 1:06:34 AM - try connect
+Debug: 3/3/2021 1:06:34 AM - Select InstallNo
+Debug: 3/3/2021 1:06:34 AM - Before accept
+Warning: 3/3/2021 1:06:34 AM - Licencia de demostracion 
+Debug: 3/3/2021 1:06:34 AM - after accept
+Informacion: 3/3/2021 1:06:34 AM - Conexion a SBO: CIRUMED_2018 - OK
+Debug: 3/3/2021 1:06:34 AM - Dias a procesar : 0
+Debug: 3/3/2021 1:06:40 AM - Dia: 2021-03-03
+Debug: 3/3/2021 1:06:43 AM - Antes de procesar: 3/3/2021 1:06:34 AM Currency: EUR
+Informacion: 3/3/2021 1:06:43 AM - Valor a cargar Moneda: EUR Fecha:3/3/2021 1:06:34 AM Valor: 877.71
+Debug: 3/3/2021 1:06:46 AM - Antes de procesar: 3/3/2021 1:06:34 AM Currency: UF
+Informacion: 3/3/2021 1:06:46 AM - Valor a cargar Moneda: UF Fecha:3/3/2021 1:06:34 AM Valor: 29309.28
+Debug: 3/3/2021 1:06:47 AM - Antes de procesar: 3/3/2021 1:06:34 AM Currency: USD
+Informacion: 3/3/2021 1:06:47 AM - Valor a cargar Moneda: USD Fecha:3/3/2021 1:06:34 AM Valor: 726.74
+Debug: 3/3/2021 1:06:48 AM - Antes de procesar: 3/3/2021 1:06:34 AM Currency: UTM
+Informacion: 3/3/2021 1:06:48 AM - Valor a cargar Moneda: UTM Fecha:3/3/2021 1:06:34 AM Valor: 51489
+Debug: 3/3/2021 1:06:48 AM - Dia: 2021-03-04
+Debug: 3/3/2021 1:06:49 AM - ConnectSBO start
+Debug: 3/3/2021 1:06:51 AM - try connect
+Debug: 3/3/2021 1:06:51 AM - Select InstallNo
+Debug: 3/3/2021 1:06:51 AM - Before accept
+Warning: 3/3/2021 1:06:51 AM - Licencia de demostracion 
+Debug: 3/3/2021 1:06:51 AM - after accept
+Informacion: 3/3/2021 1:06:51 AM - Conexion a SBO: Prueba_LL - OK
+Debug: 3/3/2021 1:06:51 AM - Dias a procesar : 0
+Debug: 3/3/2021 1:06:54 AM - Dia: 2021-03-03
+Debug: 3/3/2021 1:06:55 AM - Antes de procesar: 3/3/2021 1:06:51 AM Currency: EUR
+Informacion: 3/3/2021 1:06:55 AM - Valor a cargar Moneda: EUR Fecha:3/3/2021 1:06:51 AM Valor: 877.71
+Debug: 3/3/2021 1:06:56 AM - Antes de procesar: 3/3/2021 1:06:51 AM Currency: UF
+Informacion: 3/3/2021 1:06:56 AM - Valor a cargar Moneda: UF Fecha:3/3/2021 1:06:51 AM Valor: 29309.28
+Debug: 3/3/2021 1:06:57 AM - Antes de procesar: 3/3/2021 1:06:51 AM Currency: USD
+Informacion: 3/3/2021 1:06:57 AM - Valor a cargar Moneda: USD Fecha:3/3/2021 1:06:51 AM Valor: 726.74
+Debug: 3/3/2021 1:06:57 AM - Dia: 2021-03-04
+Informacion: 3/3/2021 1:06:59 AM - Proceso finalizado 
+Informacion: 3/3/2021 1:07:34 AM - Servicio iniciado
+Informacion: 3/3/2021 1:07:42 AM - timer iniciado
+Debug: 3/3/2021 1:07:45 AM - Timer paused
+Debug: 3/3/2021 1:07:45 AM - Before Doit
+Debug: 3/3/2021 1:07:45 AM - ConnectSBO start
+Debug: 3/3/2021 1:07:48 AM - try connect
+Debug: 3/3/2021 1:07:48 AM - Select InstallNo
+Debug: 3/3/2021 1:07:48 AM - Before accept
+Warning: 3/3/2021 1:07:48 AM - Licencia de demostracion 
+Debug: 3/3/2021 1:07:48 AM - after accept
+Informacion: 3/3/2021 1:07:48 AM - Conexion a SBO: AGR_ALMAZARA - OK
+Debug: 3/3/2021 1:07:48 AM - Dias a procesar : 0
+Debug: 3/3/2021 1:08:02 AM - Dia: 2021-03-03
+Debug: 3/3/2021 1:08:05 AM - Antes de procesar: 3/3/2021 1:07:48 AM Currency: EUR
+Debug: 3/3/2021 1:08:05 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:08:06 AM - Antes de procesar: 3/3/2021 1:07:48 AM Currency: UF
+Debug: 3/3/2021 1:08:06 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:08:07 AM - Antes de procesar: 3/3/2021 1:07:48 AM Currency: USD
+Debug: 3/3/2021 1:08:07 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:08:07 AM - Dia: 2021-03-04
+Debug: 3/3/2021 1:08:07 AM - ConnectSBO start
+Debug: 3/3/2021 1:08:09 AM - try connect
+Debug: 3/3/2021 1:08:09 AM - Select InstallNo
+Debug: 3/3/2021 1:08:09 AM - Before accept
+Warning: 3/3/2021 1:08:09 AM - Licencia de demostracion 
+Debug: 3/3/2021 1:08:09 AM - after accept
+Informacion: 3/3/2021 1:08:09 AM - Conexion a SBO: CIRUMED_2018 - OK
+Debug: 3/3/2021 1:08:09 AM - Dias a procesar : 0
+Debug: 3/3/2021 1:08:10 AM - Dia: 2021-03-03
+Debug: 3/3/2021 1:08:11 AM - Antes de procesar: 3/3/2021 1:08:09 AM Currency: EUR
+Debug: 3/3/2021 1:08:11 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:08:12 AM - Antes de procesar: 3/3/2021 1:08:09 AM Currency: UF
+Debug: 3/3/2021 1:08:12 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:08:14 AM - Antes de procesar: 3/3/2021 1:08:09 AM Currency: USD
+Debug: 3/3/2021 1:08:14 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:08:14 AM - Antes de procesar: 3/3/2021 1:08:09 AM Currency: UTM
+Debug: 3/3/2021 1:08:14 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:08:14 AM - Dia: 2021-03-04
+Debug: 3/3/2021 1:08:14 AM - ConnectSBO start
+Debug: 3/3/2021 1:08:21 AM - try connect
+Debug: 3/3/2021 1:08:21 AM - Select InstallNo
+Debug: 3/3/2021 1:08:21 AM - Before accept
+Warning: 3/3/2021 1:08:22 AM - Licencia de demostracion 
+Debug: 3/3/2021 1:08:22 AM - after accept
+Informacion: 3/3/2021 1:08:22 AM - Conexion a SBO: Prueba_LL - OK
+Debug: 3/3/2021 1:08:22 AM - Dias a procesar : 0
+Debug: 3/3/2021 1:08:24 AM - Dia: 2021-03-03
+Debug: 3/3/2021 1:08:25 AM - Antes de procesar: 3/3/2021 1:08:22 AM Currency: EUR
+Debug: 3/3/2021 1:08:25 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:08:26 AM - Antes de procesar: 3/3/2021 1:08:22 AM Currency: UF
+Debug: 3/3/2021 1:08:26 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:08:27 AM - Antes de procesar: 3/3/2021 1:08:22 AM Currency: USD
+Debug: 3/3/2021 1:08:27 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:08:27 AM - Dia: 2021-03-04
+Informacion: 3/3/2021 1:08:30 AM - Proceso finalizado 
+Informacion: 3/3/2021 1:26:57 AM - Servicio iniciado
+Informacion: 3/3/2021 1:27:09 AM - timer iniciado
+Warning: 3/3/2021 1:27:15 AM - Licencia de demostracion 
+Informacion: 3/3/2021 1:27:15 AM - Conexion a SBO: AGR_ALMAZARA - OK
+Debug: 3/3/2021 1:28:03 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:28:06 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:28:12 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Warning: 3/3/2021 1:28:14 AM - Licencia de demostracion 
+Informacion: 3/3/2021 1:28:14 AM - Conexion a SBO: CIRUMED_2018 - OK
+Informacion: 3/3/2021 1:29:24 AM - Valor a cargar Moneda: DAD Fecha:3/3/2021 1:28:14 AM Valor: 726.74
+Debug: 3/3/2021 1:29:47 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Informacion: 3/3/2021 1:30:16 AM - Valor a cargar Moneda: FR Fecha:3/3/2021 1:28:14 AM Valor: 795.03
+Debug: 3/3/2021 1:30:40 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:30:41 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:30:42 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Warning: 3/3/2021 1:30:45 AM - Licencia de demostracion 
+Informacion: 3/3/2021 1:30:45 AM - Conexion a SBO: Prueba_LL - OK
+Debug: 3/3/2021 1:30:52 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:30:53 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:30:54 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Informacion: 3/3/2021 1:30:57 AM - Proceso finalizado 
+Informacion: 3/3/2021 1:33:57 AM - Servicio iniciado
+Informacion: 3/3/2021 1:34:13 AM - timer iniciado
+Debug: 3/3/2021 1:34:16 AM - Timer paused
+Debug: 3/3/2021 1:34:16 AM - Before Doit
+Debug: 3/3/2021 1:34:16 AM - ConnectSBO start
+Debug: 3/3/2021 1:34:18 AM - try connect
+Debug: 3/3/2021 1:34:18 AM - Select InstallNo
+Debug: 3/3/2021 1:34:18 AM - Before accept
+Warning: 3/3/2021 1:34:19 AM - Licencia de demostracion 
+Debug: 3/3/2021 1:34:19 AM - after accept
+Informacion: 3/3/2021 1:34:19 AM - Conexion a SBO: AGR_ALMAZARA - OK
+Debug: 3/3/2021 1:34:19 AM - Dias a procesar : -3
+Debug: 3/3/2021 1:34:25 AM - Dia: 2021-02-28
+Debug: 3/3/2021 1:34:29 AM - procesar por CurrCode: 2/28/2021 1:34:19 AM Currency: EUR
+Informacion: 3/3/2021 1:34:30 AM - Valor a cargar Moneda: EUR Fecha:2/28/2021 1:34:19 AM Valor: 865.89
+Debug: 3/3/2021 1:34:41 AM - procesar por CurrCode: 2/28/2021 1:34:19 AM Currency: UF
+Informacion: 3/3/2021 1:34:41 AM - Valor a cargar Moneda: UF Fecha:2/28/2021 1:34:19 AM Valor: 29287.38
+Debug: 3/3/2021 1:34:43 AM - procesar por CurrCode: 2/28/2021 1:34:19 AM Currency: USD
+Informacion: 3/3/2021 1:34:43 AM - Valor a cargar Moneda: USD Fecha:2/28/2021 1:34:19 AM Valor: 708.04
+Debug: 3/3/2021 1:34:43 AM - Dia: 2021-03-01
+Debug: 3/3/2021 1:34:53 AM - procesar por CurrCode: 3/1/2021 1:34:43 AM Currency: EUR
+Informacion: 3/3/2021 1:34:53 AM - Valor a cargar Moneda: EUR Fecha:3/1/2021 1:34:43 AM Valor: 869.67
+Debug: 3/3/2021 1:34:55 AM - procesar por CurrCode: 3/1/2021 1:34:43 AM Currency: UF
+Informacion: 3/3/2021 1:34:55 AM - Valor a cargar Moneda: UF Fecha:3/1/2021 1:34:43 AM Valor: 29294.68
+Debug: 3/3/2021 1:34:56 AM - procesar por CurrCode: 3/1/2021 1:34:43 AM Currency: USD
+Informacion: 3/3/2021 1:34:56 AM - Valor a cargar Moneda: USD Fecha:3/1/2021 1:34:43 AM Valor: 719.91
+Debug: 3/3/2021 1:34:56 AM - Dia: 2021-03-02
+Debug: 3/3/2021 1:34:58 AM - procesar por CurrCode: 3/2/2021 1:34:56 AM Currency: EUR
+Debug: 3/3/2021 1:34:58 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:35:19 AM - procesar por CurrCode: 3/2/2021 1:34:56 AM Currency: UF
+Debug: 3/3/2021 1:35:19 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:35:19 AM - procesar por CurrCode: 3/2/2021 1:34:56 AM Currency: USD
+Debug: 3/3/2021 1:35:19 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:35:19 AM - Dia: 2021-03-03
+Debug: 3/3/2021 1:35:20 AM - procesar por CurrCode: 3/3/2021 1:35:19 AM Currency: EUR
+Debug: 3/3/2021 1:35:20 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:35:21 AM - procesar por CurrCode: 3/3/2021 1:35:19 AM Currency: UF
+Debug: 3/3/2021 1:35:21 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:35:22 AM - procesar por CurrCode: 3/3/2021 1:35:19 AM Currency: USD
+Debug: 3/3/2021 1:35:22 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:35:22 AM - Dia: 2021-03-04
+Debug: 3/3/2021 1:35:22 AM - ConnectSBO start
+Debug: 3/3/2021 1:35:24 AM - try connect
+Debug: 3/3/2021 1:35:24 AM - Select InstallNo
+Debug: 3/3/2021 1:35:25 AM - Before accept
+Warning: 3/3/2021 1:35:25 AM - Licencia de demostracion 
+Debug: 3/3/2021 1:35:25 AM - after accept
+Informacion: 3/3/2021 1:35:25 AM - Conexion a SBO: CIRUMED_2018 - OK
+Debug: 3/3/2021 1:35:25 AM - Dias a procesar : -3
+Debug: 3/3/2021 1:35:27 AM - Dia: 2021-02-28
+Debug: 3/3/2021 1:35:43 AM - procesar por ISOCurrCod: 2/28/2021 1:35:25 AM Currency: USD
+Informacion: 3/3/2021 1:35:43 AM - Valor a cargar Moneda: DAD Fecha:2/28/2021 1:35:25 AM Valor: 708.04
+Debug: 3/3/2021 1:35:50 AM - procesar por CurrCode: 2/28/2021 1:35:25 AM Currency: EUR
+Informacion: 3/3/2021 1:35:50 AM - Valor a cargar Moneda: EUR Fecha:2/28/2021 1:35:25 AM Valor: 865.89
+Debug: 3/3/2021 1:35:52 AM - procesar por ISOCurrCod: 2/28/2021 1:35:25 AM Currency: CHF
+Informacion: 3/3/2021 1:35:52 AM - Valor a cargar Moneda: FR Fecha:2/28/2021 1:35:25 AM Valor: 783.14
+Debug: 3/3/2021 1:35:58 AM - procesar por CurrCode: 2/28/2021 1:35:25 AM Currency: UF
+Informacion: 3/3/2021 1:35:58 AM - Valor a cargar Moneda: UF Fecha:2/28/2021 1:35:25 AM Valor: 29287.38
+Debug: 3/3/2021 1:35:59 AM - procesar por CurrCode: 2/28/2021 1:35:25 AM Currency: USD
+Informacion: 3/3/2021 1:36:00 AM - Valor a cargar Moneda: USD Fecha:2/28/2021 1:35:25 AM Valor: 708.04
+Debug: 3/3/2021 1:36:00 AM - procesar por CurrCode: 2/28/2021 1:35:25 AM Currency: UTM
+Informacion: 3/3/2021 1:36:00 AM - Valor a cargar Moneda: UTM Fecha:2/28/2021 1:35:25 AM Valor: 51131
+Debug: 3/3/2021 1:36:00 AM - Dia: 2021-03-01
+Debug: 3/3/2021 1:36:02 AM - procesar por ISOCurrCod: 3/1/2021 1:36:00 AM Currency: USD
+Informacion: 3/3/2021 1:36:02 AM - Valor a cargar Moneda: DAD Fecha:3/1/2021 1:36:00 AM Valor: 719.91
+Debug: 3/3/2021 1:36:03 AM - procesar por CurrCode: 3/1/2021 1:36:00 AM Currency: EUR
+Informacion: 3/3/2021 1:36:03 AM - Valor a cargar Moneda: EUR Fecha:3/1/2021 1:36:00 AM Valor: 869.67
+Debug: 3/3/2021 1:36:04 AM - procesar por ISOCurrCod: 3/1/2021 1:36:00 AM Currency: CHF
+Informacion: 3/3/2021 1:36:04 AM - Valor a cargar Moneda: FR Fecha:3/1/2021 1:36:00 AM Valor: 791.28
+Debug: 3/3/2021 1:36:04 AM - procesar por CurrCode: 3/1/2021 1:36:00 AM Currency: UF
+Informacion: 3/3/2021 1:36:04 AM - Valor a cargar Moneda: UF Fecha:3/1/2021 1:36:00 AM Valor: 29294.68
+Debug: 3/3/2021 1:36:05 AM - procesar por CurrCode: 3/1/2021 1:36:00 AM Currency: USD
+Informacion: 3/3/2021 1:36:05 AM - Valor a cargar Moneda: USD Fecha:3/1/2021 1:36:00 AM Valor: 719.91
+Debug: 3/3/2021 1:36:06 AM - procesar por CurrCode: 3/1/2021 1:36:00 AM Currency: UTM
+Informacion: 3/3/2021 1:36:06 AM - Valor a cargar Moneda: UTM Fecha:3/1/2021 1:36:00 AM Valor: 51489
+Debug: 3/3/2021 1:36:06 AM - Dia: 2021-03-02
+Debug: 3/3/2021 1:36:07 AM - procesar por ISOCurrCod: 3/2/2021 1:36:06 AM Currency: USD
+Informacion: 3/3/2021 1:36:07 AM - Valor a cargar Moneda: DAD Fecha:3/2/2021 1:36:06 AM Valor: 721.2
+Debug: 3/3/2021 1:36:08 AM - procesar por CurrCode: 3/2/2021 1:36:06 AM Currency: EUR
+Debug: 3/3/2021 1:36:08 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:09 AM - procesar por ISOCurrCod: 3/2/2021 1:36:06 AM Currency: CHF
+Informacion: 3/3/2021 1:36:09 AM - Valor a cargar Moneda: FR Fecha:3/2/2021 1:36:06 AM Valor: 789.15
+Debug: 3/3/2021 1:36:10 AM - procesar por CurrCode: 3/2/2021 1:36:06 AM Currency: UF
+Debug: 3/3/2021 1:36:10 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:11 AM - procesar por CurrCode: 3/2/2021 1:36:06 AM Currency: USD
+Debug: 3/3/2021 1:36:11 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:12 AM - procesar por CurrCode: 3/2/2021 1:36:06 AM Currency: UTM
+Debug: 3/3/2021 1:36:12 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:12 AM - Dia: 2021-03-03
+Debug: 3/3/2021 1:36:14 AM - procesar por ISOCurrCod: 3/3/2021 1:36:12 AM Currency: USD
+Debug: 3/3/2021 1:36:14 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:15 AM - procesar por CurrCode: 3/3/2021 1:36:12 AM Currency: EUR
+Debug: 3/3/2021 1:36:15 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:16 AM - procesar por ISOCurrCod: 3/3/2021 1:36:12 AM Currency: CHF
+Debug: 3/3/2021 1:36:16 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:17 AM - procesar por CurrCode: 3/3/2021 1:36:12 AM Currency: UF
+Debug: 3/3/2021 1:36:17 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:17 AM - procesar por CurrCode: 3/3/2021 1:36:12 AM Currency: USD
+Debug: 3/3/2021 1:36:18 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:18 AM - procesar por CurrCode: 3/3/2021 1:36:12 AM Currency: UTM
+Debug: 3/3/2021 1:36:18 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:18 AM - Dia: 2021-03-04
+Debug: 3/3/2021 1:36:18 AM - ConnectSBO start
+Debug: 3/3/2021 1:36:21 AM - try connect
+Debug: 3/3/2021 1:36:21 AM - Select InstallNo
+Debug: 3/3/2021 1:36:21 AM - Before accept
+Warning: 3/3/2021 1:36:21 AM - Licencia de demostracion 
+Debug: 3/3/2021 1:36:21 AM - after accept
+Informacion: 3/3/2021 1:36:21 AM - Conexion a SBO: Prueba_LL - OK
+Debug: 3/3/2021 1:36:21 AM - Dias a procesar : -3
+Debug: 3/3/2021 1:36:25 AM - Dia: 2021-02-28
+Debug: 3/3/2021 1:36:28 AM - procesar por CurrCode: 2/28/2021 1:36:21 AM Currency: EUR
+Informacion: 3/3/2021 1:36:28 AM - Valor a cargar Moneda: EUR Fecha:2/28/2021 1:36:21 AM Valor: 865.89
+Debug: 3/3/2021 1:36:29 AM - procesar por CurrCode: 2/28/2021 1:36:21 AM Currency: UF
+Informacion: 3/3/2021 1:36:29 AM - Valor a cargar Moneda: UF Fecha:2/28/2021 1:36:21 AM Valor: 29287.38
+Debug: 3/3/2021 1:36:29 AM - procesar por CurrCode: 2/28/2021 1:36:21 AM Currency: USD
+Informacion: 3/3/2021 1:36:29 AM - Valor a cargar Moneda: USD Fecha:2/28/2021 1:36:21 AM Valor: 708.04
+Debug: 3/3/2021 1:36:29 AM - Dia: 2021-03-01
+Debug: 3/3/2021 1:36:29 AM - procesar por CurrCode: 3/1/2021 1:36:29 AM Currency: EUR
+Informacion: 3/3/2021 1:36:29 AM - Valor a cargar Moneda: EUR Fecha:3/1/2021 1:36:29 AM Valor: 869.67
+Debug: 3/3/2021 1:36:29 AM - procesar por CurrCode: 3/1/2021 1:36:29 AM Currency: UF
+Informacion: 3/3/2021 1:36:29 AM - Valor a cargar Moneda: UF Fecha:3/1/2021 1:36:29 AM Valor: 29294.68
+Debug: 3/3/2021 1:36:29 AM - procesar por CurrCode: 3/1/2021 1:36:29 AM Currency: USD
+Informacion: 3/3/2021 1:36:29 AM - Valor a cargar Moneda: USD Fecha:3/1/2021 1:36:29 AM Valor: 719.91
+Debug: 3/3/2021 1:36:29 AM - Dia: 2021-03-02
+Debug: 3/3/2021 1:36:29 AM - procesar por CurrCode: 3/2/2021 1:36:29 AM Currency: EUR
+Debug: 3/3/2021 1:36:29 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:29 AM - procesar por CurrCode: 3/2/2021 1:36:29 AM Currency: UF
+Debug: 3/3/2021 1:36:29 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:29 AM - procesar por CurrCode: 3/2/2021 1:36:29 AM Currency: USD
+Debug: 3/3/2021 1:36:29 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:29 AM - Dia: 2021-03-03
+Debug: 3/3/2021 1:36:29 AM - procesar por CurrCode: 3/3/2021 1:36:29 AM Currency: EUR
+Debug: 3/3/2021 1:36:29 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:29 AM - procesar por CurrCode: 3/3/2021 1:36:29 AM Currency: UF
+Debug: 3/3/2021 1:36:29 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:29 AM - procesar por CurrCode: 3/3/2021 1:36:29 AM Currency: USD
+Debug: 3/3/2021 1:36:29 AM - Error al actualizar tasa de cambio en SBO Exchange rate for this date is already defined 
+Debug: 3/3/2021 1:36:29 AM - Dia: 2021-03-04
+Informacion: 3/3/2021 1:36:32 AM - Proceso finalizado 
