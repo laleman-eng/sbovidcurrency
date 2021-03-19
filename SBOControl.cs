@@ -192,21 +192,29 @@ namespace SBO_VID_Currency
 
                     for (i = 0; i < globals.CompanyList.Count; i++)
                     {
-                        if (!oCompany.Connected)
+                        try 
                         {
-                            ConnectSBO(ref oCompany, ref nErr, ref sErr, (String)globals.CompanyList[i]);
-                            if (nErr != 0)
+                            if (!oCompany.Connected)
                             {
-                                oLog.LogMsg(sErr, "F", "E");
+                                ConnectSBO(ref oCompany, ref nErr, ref sErr, (String)globals.CompanyList[i]);
+                                if (nErr != 0)
+                                {
+                                    oLog.LogMsg(sErr, "F", "E");
+                                    oCompany.Disconnect();
+                                    //return;
+                                }
+                            }
+                            if (oCompany.Connected)
+                            {
+                                processCurrency(oCompany);
                                 oCompany.Disconnect();
-                                return;
                             }
                         }
-
-                        if (oCompany.Connected)
+                        catch (Exception e)
                         {
-                            processCurrency(oCompany);
-                            oCompany.Disconnect();
+                            oLog.LogMsg("Error en ejecución de servicio  en empresa " +  (String)globals.CompanyList[i] + " Excepcion: "+ e.Message, "F", "E");
+                            if (oCompany.Connected)
+                                oCompany.Disconnect();
                         }
                     }
                 }
@@ -217,28 +225,37 @@ namespace SBO_VID_Currency
 
                     for (i = 0; i < globals.CompanyList.Count; i++)
                     {
-                        conectarDBSQL((String)globals.CompanyList[i], ref sErr, ref nErr, ref cnn);
-                        if (nErr != 0)
+                        try
                         {
-                            oLog.LogMsg(sErr, "F", "E");
-                            cnn.Close();
-                            return;
+                            conectarDBSQL((String)globals.CompanyList[i], ref sErr, ref nErr, ref cnn);
+                            if (nErr != 0)
+                            {
+                                oLog.LogMsg(sErr, "F", "E");
+                                cnn.Close();
+                                //return;
+                            }
+                            if (cnn.State == System.Data.ConnectionState.Open)
+                            {
+                                processCurrencyDB(cnn);
+                                cnn.Close();
+                            }
                         }
-                        if (cnn.State == System.Data.ConnectionState.Open)
+                        catch (Exception e)
                         {
-                            processCurrencyDB(cnn);
-                            cnn.Close();
+                            oLog.LogMsg("Error en ejecución de servicio  en empresa " + (String)globals.CompanyList[i] + " Excepcion: " + e.Message, "F", "E");
+                            if (cnn.State == System.Data.ConnectionState.Open)
+                                cnn.Close();
                         }
+          
                     }
                 }
                 oLog.LogMsg("Proceso finalizado " , "F", "I");
                 System.Threading.Thread.Sleep(8000);
-                
                 System.Environment.Exit(0);
             }
             catch (Exception e)
             {
-                oLog.LogMsg("Error en ejecución de servicio " + e.Message, "F", "E");
+                oLog.LogMsg("Error en ejecución de App " + e.Message, "F", "E");
                 if (oCompany.Connected)
                     oCompany.Disconnect();
             }
@@ -505,7 +522,7 @@ namespace SBO_VID_Currency
             Dictionary<DateTime, Decimal> AuxDict = new Dictionary<DateTime, decimal>();
             //String ApiKey = "c5656cd39657cf74083e0da48b1960e7963b4340";
             String oSql;
-
+            int diasAProcesar;
             // Validar definicion de monedas
             oSql = "SELECT CurrCode, CurrName , ISOCurrCod   " +
                        "FROM OCRN            " +
@@ -518,25 +535,43 @@ namespace SBO_VID_Currency
                 {
                     DataTable dataTable = new DataTable();
                     dataTable.Load(reader);
-                    int diasAProcesar = SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar;
-                    for (int x = diasAProcesar; x <= 0; x++)
+                    
+                if (SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar > 0)
+                    diasAProcesar = 0;
+                else
+                    diasAProcesar = SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar;
+        
+                oLog.LogMsg("Dias a procesar : " + diasAProcesar , "F", "D");    
+                    for (int x = diasAProcesar; x <= 1; x++)
                     {
                         Fecha = Fecha.AddDays(x);
                         string dateFormat = Fecha.ToString("yyyy-MM-dd");
+                        oLog.LogMsg("Dia: " + dateFormat, "F", "D");
                         string url = SBO_VID_Currency.Properties.Settings.Default.WEBPage;
                         string responseRest = restGETWhitParameter(url, dateFormat);
                         if (responseRest != "[]")
                         {
                             var listTC = JsonConvert.DeserializeObject<List<TC>>(responseRest);
-                            foreach (DataRow drow in dataTable.Rows)
+                            foreach (DataRow drow in dataTable.Rows)  //monedas en SAP
                             {
                                 string moneda = System.Convert.ToString(drow["CurrCode"]);
+                                string monedaISO = System.Convert.ToString(drow["ISOCurrCod"]);
                                 for (int y = 0; y < listTC.Count; y++)
                                 {
                                     if (moneda == listTC[y].codigo)
                                     {
+                                        oLog.LogMsg("procesar por CurrCode: " + Fecha + " Currency: " + moneda, "F", "D");
                                         UpdateSBOSAPBD(ref cnn, Fecha, (Double)listTC[y].valor, moneda);
                                         y = listTC.Count;
+                                    }
+                                    else
+                                    {
+                                        if (monedaISO == listTC[y].codigo)
+                                        {
+                                            oLog.LogMsg("procesar por ISOCurrCod: " + Fecha + " Currency: " + moneda, "F", "D");
+                                            UpdateSBOSAPBD(ref cnn, Fecha, (Double)listTC[y].valor, moneda);
+                                            y = listTC.Count;
+                                        }
                                     }
                                 }
                             }
@@ -566,17 +601,22 @@ namespace SBO_VID_Currency
                         try
                         {
                             command.ExecuteNonQuery();
+                            oLog.LogMsg("Valor cargado Moneda: " + moneda + " Fecha:" + FecActSBO + " Valor: " + USDObs, "A", "I");
                         }
                         catch (Exception e)
                         {
                             oLog.LogMsg("Error al actualizar tasa de cambio en SBO SCRIPT " + e.Message, "A", "E");
                         }
                     }
+                    else 
+                    {
+                        oLog.LogMsg("Tipo de cambio  " + moneda + " ya se encuentra ingresado en la sociedad ", "A", "D");
+                    }
                 }
             }
             catch (Exception e)
             {
-                oLog.LogMsg("Error al actualizar tasa de cambio en SBO - " + e.Message, "A", "E");
+                oLog.LogMsg("Error al actualizar tasa de cambio en SBO - Moneda: " + moneda + " exepcion: "  + e.Message, "A", "E");
             }
         }
 
@@ -606,7 +646,7 @@ namespace SBO_VID_Currency
                 }
                 catch (Exception e)
                 {
-                    oLog.LogMsg("Error al actualizar tasa de cambio en SBO " + e.Message, "A", "D");
+                    oLog.LogMsg("Tipo de cambio  " +  moneda + " ya se encuentra ingresado en la sociedad " +  e.Message, "A", "D");
                 }
 
 
