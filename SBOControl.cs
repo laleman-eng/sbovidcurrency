@@ -440,6 +440,15 @@ namespace SBO_VID_Currency
             String oSql;
             int diasAProcesar;
 
+            // Precondiciones iniciales (Moneda Local, Cambio Directo o Indirecto, decimales a redondear)
+//            if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
+//                oSql = @"SELECT ""MainCurncy"", ""DirectRate"" , ""RateDec""   
+//                        FROM ""OADM""  ";
+//            else
+//                oSql = "SELECT MainCurncy, DirectRate , RateDec  " +
+//                       "FROM OADM  ";
+
+
             // Validar definicion de monedas
             if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
                 oSql = @"SELECT ""CurrCode"", ""CurrName"" , ""ISOCurrCod""   
@@ -449,6 +458,7 @@ namespace SBO_VID_Currency
                 oSql = "SELECT CurrCode, CurrName , ISOCurrCod  " +
                        "FROM OCRN            " +
                        "WHERE Locked = 'N' ";
+
 
             oRS.DoQuery(oSql);
             if (oRS.RecordCount > 0)
@@ -501,15 +511,7 @@ namespace SBO_VID_Currency
                         Fecha = DateTime.Now;
                    }
 
-                //sFecha = Fecha.ToString("yyyyMMdd");
-                //if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
-                //    oRS.DoQuery("select distinct \"RateDate\" from  \"ORTT\" " +
-                //                " where \"RateDate\" >= TO_DATE('" + sFecha + "', 'YYYYMMDD') " +
-                //                " order by \"RateDate\" ");
-                //else
-                //    oRS.DoQuery("select distinct RateDate from  ORTT " +
-                //                " where RateDate >= CONVERT(datetime,'" + sFecha + "',112) " +
-                //                " order by RateDate ");
+
             }
 
         }

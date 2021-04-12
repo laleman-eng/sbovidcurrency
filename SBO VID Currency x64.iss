@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "SBO VID Currency"
-#define MyAppVersion "2.1.2"
+#define MyAppVersion "2.2.3"
 #define MyAppPublisher "VisualD"
 #define MyAppURL "http://www.visuald.cl"
 #define MyAppExeName "SBO VID Currency.exe"
@@ -43,7 +43,7 @@ Source: C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.uEncrypt.dll; DestDir: {app}
 Source: C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.uEncrypt.pdb; DestDir: {app}; Flags: ignoreversion
 Source: C:\VisualK\SBOVIDCurrency\bin\Debug\Newtonsoft.Json.dll; DestDir: {app}; Flags: ignoreversion
 Source: C:\VisualK\SBOVIDCurrency\bin\Debug\Newtonsoft.Json.xml; DestDir: {app}; Flags: ignoreversion
-Source: C:\VisualK\SBOVIDCurrency\bin\Debug\SAPBusinessOneSDK.dll; DestDir: {app}; Flags: ignoreversion
+Source: C:\VisualK\SBOVIDCurrency\bin\Debug\Interop.SAPbobsCOM.dll; DestDir: {app}; Flags: ignoreversion
 Source: C:\VisualK\SBOVIDCurrency\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll; DestDir: {app}; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

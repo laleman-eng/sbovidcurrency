@@ -29,7 +29,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -71,8 +71,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Interop.SAPbobsCOM">
-      <HintPath>SAP90\Interop.SAPbobsCOM.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>SAP91 x64\Interop.SAPbobsCOM.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualBasic" />
@@ -93,11 +93,13 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="VisualD.Core">
-      <HintPath>DLL\VisualD.Core.dll</HintPath>
+    <Reference Include="VisualD.Core, Version=1.0.2.39, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL x64\VisualD.Core.dll</HintPath>
     </Reference>
-    <Reference Include="VisualD.uEncrypt">
-      <HintPath>DLL\VisualD.uEncrypt.dll</HintPath>
+    <Reference Include="VisualD.uEncrypt, Version=1.0.2.39, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL x64\VisualD.uEncrypt.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

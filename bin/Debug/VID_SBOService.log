@@ -330,3 +330,56 @@ Debug: 3/3/2021 1:36:29 AM - Error al actualizar tasa de cambio en SBO Exchange 
 Debug: 3/3/2021 1:36:29 AM - Dia: 2021-03-04
 Informacion: 3/3/2021 1:36:32 AM - Proceso finalizado 
 Informacion: 3/5/2021 11:43:18 AM - Servicio iniciado
+Informacion: 3/24/2021 12:18:38 PM - Servicio iniciado
+Informacion: 3/24/2021 12:21:31 PM - timer iniciado
+Warning: 3/24/2021 12:21:38 PM - Licencia de demostracion 
+Informacion: 3/24/2021 12:21:38 PM - Conexion a SBO: CIRUMED_2018 - OK
+Informacion: 3/24/2021 12:21:41 PM - Valor a cargar Moneda: CAD Fecha:3/24/2021 12:21:38 PM Valor: 574.29
+Informacion: 3/24/2021 12:21:41 PM - Valor a cargar Moneda: DAD Fecha:3/24/2021 12:21:38 PM Valor: 720.62
+Informacion: 3/24/2021 12:21:41 PM - Valor a cargar Moneda: EUR Fecha:3/24/2021 12:21:38 PM Valor: 854.83
+Informacion: 3/24/2021 12:21:41 PM - Valor a cargar Moneda: FR Fecha:3/24/2021 12:21:38 PM Valor: 772.12
+Informacion: 3/24/2021 12:21:41 PM - Valor a cargar Moneda: UF Fecha:3/24/2021 12:21:38 PM Valor: 29381.51
+Informacion: 3/24/2021 12:21:41 PM - Valor a cargar Moneda: USD Fecha:3/24/2021 12:21:38 PM Valor: 720.62
+Informacion: 3/24/2021 12:21:41 PM - Valor a cargar Moneda: UTM Fecha:3/24/2021 12:21:38 PM Valor: 51489
+Informacion: 3/24/2021 12:21:43 PM - Proceso finalizado 
+Informacion: 4/12/2021 9:30:23 AM - Servicio iniciado
+Informacion: 4/12/2021 9:30:36 AM - Servicio iniciado
+Informacion: 4/12/2021 9:30:50 AM - timer iniciado
+Warning: 4/12/2021 9:30:58 AM - Licencia de demostracion 
+Informacion: 4/12/2021 9:30:58 AM - Conexion a SBO: CIRUMED_2018 - OK
+Error: 4/12/2021 9:31:14 AM - Error en ejecución de servicio  en empresa CIRUMED_2018 Excepcion: Invalid field name
+Informacion: 4/12/2021 9:31:17 AM - Proceso finalizado 
+Informacion: 4/12/2021 9:32:00 AM - Servicio iniciado
+Informacion: 4/12/2021 9:32:16 AM - timer iniciado
+Warning: 4/12/2021 9:32:23 AM - Licencia de demostracion 
+Informacion: 4/12/2021 9:32:23 AM - Conexion a SBO: CIRUMED_2018 - OK
+Error: 4/12/2021 9:32:36 AM - Error en ejecución de servicio  en empresa CIRUMED_2018 Excepcion: Invalid field name
+Informacion: 4/12/2021 9:33:18 AM - Proceso finalizado 
+Informacion: 4/12/2021 9:33:45 AM - Servicio iniciado
+Informacion: 4/12/2021 9:34:02 AM - timer iniciado
+Warning: 4/12/2021 9:34:10 AM - Licencia de demostracion 
+Informacion: 4/12/2021 9:34:10 AM - Conexion a SBO: CIRUMED_2018 - OK
+Error: 4/12/2021 9:34:43 AM - Error en ejecución de servicio  en empresa CIRUMED_2018 Excepcion: Invalid field name
+Informacion: 4/12/2021 10:40:17 AM - Servicio iniciado
+Informacion: 4/12/2021 10:40:33 AM - timer iniciado
+Warning: 4/12/2021 10:40:40 AM - Licencia de demostracion 
+Informacion: 4/12/2021 10:40:40 AM - Conexion a SBO: CIRUMED_2018 - OK
+Informacion: 4/12/2021 10:52:35 AM - Servicio iniciado
+Informacion: 4/12/2021 10:52:41 AM - Servicio iniciado
+Informacion: 4/12/2021 10:52:43 AM - timer iniciado
+Warning: 4/12/2021 10:52:50 AM - Licencia de demostracion 
+Informacion: 4/12/2021 10:52:50 AM - Conexion a SBO: CIRUMED_2018 - OK
+Informacion: 4/12/2021 10:53:07 AM - Valor a cargar Moneda: CAD Fecha:4/11/2021 10:52:50 AM Valor: 563.27
+Informacion: 4/12/2021 10:53:09 AM - Valor a cargar Moneda: DAD Fecha:4/11/2021 10:52:50 AM Valor: 708.09
+Informacion: 4/12/2021 10:53:10 AM - Valor a cargar Moneda: EUR Fecha:4/11/2021 10:52:50 AM Valor: 843.87
+Informacion: 4/12/2021 10:53:12 AM - Valor a cargar Moneda: FR Fecha:4/11/2021 10:52:50 AM Valor: 766.58
+Informacion: 4/12/2021 10:53:13 AM - Valor a cargar Moneda: UF Fecha:4/11/2021 10:52:50 AM Valor: 29419.66
+Informacion: 4/12/2021 10:53:14 AM - Valor a cargar Moneda: USD Fecha:4/11/2021 10:52:50 AM Valor: 708.09
+Informacion: 4/12/2021 10:53:16 AM - Valor a cargar Moneda: UTM Fecha:4/11/2021 10:52:50 AM Valor: 51592
+Informacion: 4/12/2021 10:53:18 AM - Valor a cargar Moneda: CAD Fecha:4/12/2021 10:53:16 AM Valor: 567.53
+Informacion: 4/12/2021 10:53:19 AM - Valor a cargar Moneda: DAD Fecha:4/12/2021 10:53:16 AM Valor: 711.23
+Informacion: 4/12/2021 10:53:20 AM - Valor a cargar Moneda: EUR Fecha:4/12/2021 10:53:16 AM Valor: 846.6
+Informacion: 4/12/2021 10:53:22 AM - Valor a cargar Moneda: FR Fecha:4/12/2021 10:53:16 AM Valor: 769.15
+Informacion: 4/12/2021 10:53:23 AM - Valor a cargar Moneda: UF Fecha:4/12/2021 10:53:16 AM Valor: 29423.57
+Informacion: 4/12/2021 10:53:24 AM - Valor a cargar Moneda: USD Fecha:4/12/2021 10:53:16 AM Valor: 711.23
+Informacion: 4/12/2021 10:53:25 AM - Valor a cargar Moneda: UTM Fecha:4/12/2021 10:53:16 AM Valor: 51592

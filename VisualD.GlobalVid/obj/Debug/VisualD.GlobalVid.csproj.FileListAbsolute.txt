@@ -25,6 +25,5 @@ C:\Users\Administrador\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\obj\Debu
 C:\Users\Administrador\Documents\SBO\SBO VID Currency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.pdb
 C:\VisualK\SBOVIDCurrency\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.dll
 C:\VisualK\SBOVIDCurrency\VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.pdb
-C:\VisualK\SBOVIDCurrency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.csprojResolveAssemblyReference.cache
 C:\VisualK\SBOVIDCurrency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.dll
 C:\VisualK\SBOVIDCurrency\VisualD.GlobalVid\obj\Debug\VisualD.GlobalVid.pdb
