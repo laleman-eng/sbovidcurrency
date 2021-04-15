@@ -429,47 +429,87 @@ namespace SBO_VID_Currency
         private void processCurrency(SAPbobsCOM.Company oCompany)
         {
             SAPbobsCOM.Recordset oRS = (SAPbobsCOM.Recordset)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+            String oSql;
+
+
+             //Precondiciones iniciales (Moneda Local, Cambio Directo o Indirecto, decimales a redondear)
+
+            if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
+                oSql = @"SELECT ""MainCurncy"", ""DirectRate"" , ""RateDec""   
+                        FROM ""OADM""  ";
+            else
+                oSql = "SELECT MainCurncy, DirectRate , RateDec  " +
+                       "FROM OADM  ";
+            oRS.DoQuery(oSql);
+            if (oRS.RecordCount > 0)
+            {
+                string mainCurrency = ((System.String)oRS.Fields.Item("MainCurncy").Value).Trim();
+                string tipoCambio = ((System.String)oRS.Fields.Item("DirectRate").Value).Trim();
+                int redondeo = ((System.Int32)oRS.Fields.Item("RateDec").Value);
+
+                if (mainCurrency == "CLP" || mainCurrency == "$")  //si moneda sistema es pesos
+                    deployCurrency(oCompany);
+                else 
+                {
+                    if (tipoCambio == "N")  //si tipo de cambio es indirecto 
+                        deployCurrencyCal(oCompany, mainCurrency);
+                }
+            }
+            else
+            {
+                oLog.LogMsg("Parametros iniciales sin datos Tabla: OADM ", "A", "I");
+            }
+
+
+
+
+
+        }
+
+
+        /// <summary>
+        /// carga los valores calculados -> Moneda Definida Indirecta/ Monedas definidas en SAP
+        /// </summary>
+        /// <param name="oCompany"></param>
+        /// <param name="monedaIndirecta"> Moneda definida en SAP como indirecta</param>
+        private void deployCurrencyCal(SAPbobsCOM.Company oCompany, string monedaIndirecta)
+        {
+            SAPbobsCOM.Recordset oRS = (SAPbobsCOM.Recordset)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
             SAPbobsCOM.SBObob pSBObob = (SAPbobsCOM.SBObob)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoBridge);
 
             TasaCambioSBO oTasaCambioSBO = new TasaCambioSBO();
             List<TasaCambioSBO> oTasasCambio = new List<TasaCambioSBO>();
             DateTime Fecha = DateTime.Now;
             Dictionary<DateTime, Decimal> AuxDict = new Dictionary<DateTime, decimal>();
-            //String ApiKey = "c5656cd39657cf74083e0da48b1960e7963b4340";
 
             String oSql;
             int diasAProcesar;
+            double valorIndirecto = 0;
 
-            // Precondiciones iniciales (Moneda Local, Cambio Directo o Indirecto, decimales a redondear)
-//            if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
-//                oSql = @"SELECT ""MainCurncy"", ""DirectRate"" , ""RateDec""   
-//                        FROM ""OADM""  ";
-//            else
-//                oSql = "SELECT MainCurncy, DirectRate , RateDec  " +
-//                       "FROM OADM  ";
-
-
-            // Validar definicion de monedas
-            if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
-                oSql = @"SELECT ""CurrCode"", ""CurrName"" , ""ISOCurrCod""   
-                        FROM ""OCRN"" 
-                        WHERE ""Locked"" = 'N' ";
-            else
-                oSql = "SELECT CurrCode, CurrName , ISOCurrCod  " +
-                       "FROM OCRN            " +
-                       "WHERE Locked = 'N' ";
-
-
-            oRS.DoQuery(oSql);
-            if (oRS.RecordCount > 0)
+            try
             {
 
-                if (SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar > 0)
-                    diasAProcesar = 0;
-                else
-                    diasAProcesar = SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar;
 
-                oLog.LogMsg("Dias a procesar : " + diasAProcesar , "F", "D");
+                // Validar definicion de monedas
+                if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
+                    oSql = @"SELECT ""CurrCode"", ""CurrName"" , ""ISOCurrCod"" , ""DocCurrCod"" , ""FrgnName""  
+                        FROM ""OCRN"" 
+                        WHERE ""Locked"" = 'N' ";
+                else
+                    oSql = "SELECT CurrCode, CurrName , ISOCurrCod , DocCurrCod , FrgnName " +
+                           "FROM OCRN            " +
+                           "WHERE Locked = 'N' ";
+
+                oRS.DoQuery(oSql);
+                if (oRS.RecordCount > 0)
+                {
+
+                    if (SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar > 0)
+                        diasAProcesar = 0;
+                    else
+                        diasAProcesar = SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar;
+
+                    oLog.LogMsg("Dias a procesar : " + diasAProcesar, "F", "D");
 
                     for (int x = diasAProcesar; x <= 1; x++)
                     {
@@ -481,26 +521,80 @@ namespace SBO_VID_Currency
                         if (responseRest != "[]")
                         {
                             var listTC = JsonConvert.DeserializeObject<List<TC>>(responseRest);
+
+                            for (int y = 0; y < listTC.Count; y++)
+                            {
+                                if (monedaIndirecta == listTC[y].codigo)
+                                    valorIndirecto = (Double)listTC[y].valor;
+                            }
+                            
                             for (int i = 0; i < oRS.RecordCount; i++)  //Monedas en SAP
                             {
                                 string moneda = ((System.String)oRS.Fields.Item("CurrCode").Value).Trim();
                                 string monedaISO = ((System.String)oRS.Fields.Item("ISOCurrCod").Value).Trim();
-                                for (int y = 0; y < listTC.Count; y++)
+                                string monedaInternacional = ((System.String)oRS.Fields.Item("DocCurrCod").Value).Trim();
+                                string calculoMoneda = ((System.String)oRS.Fields.Item("FrgnName").Value).Trim();
+
+                                for (int y = 0; y < listTC.Count; y++) //monedas WS
                                 {
+
+                                    if (moneda == "CLP")  //asumo que siempre existirá CLP cuando se llama este metodo
+                                    {
+                                        oLog.LogMsg("procesado por CurrCode: " + Fecha + " Currency: " + moneda, "F", "D");
+                                        UpdateSBOSAP(ref oCompany, Fecha, valorIndirecto, ref pSBObob, moneda);
+                                        y = listTC.Count-1;
+                                    }
+
+
                                     if (moneda == listTC[y].codigo)
                                     {
-
-                                        oLog.LogMsg("procesar por CurrCode: " + Fecha + " Currency: " + moneda, "F", "D");
-                                        UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
+                                        if (calculoMoneda == "CLP")
+                                        {
+                                            oLog.LogMsg("procesado por CurrCode: " + Fecha + " Currency: " + moneda, "F", "D");
+                                            UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
+                                        }
+                                        else
+                                        {
+                                            double val = valorIndirecto / (Double)listTC[y].valor;
+                                            oLog.LogMsg("procesado por CurrCode Calculado: " + Fecha + " Currency: " + moneda, "F", "D");
+                                            UpdateSBOSAP(ref oCompany, Fecha, val, ref pSBObob, moneda);
+                                        }
                                         y = listTC.Count;
                                     }
                                     else
                                     {
                                         if (monedaISO == listTC[y].codigo)
                                         {
-                                            oLog.LogMsg("procesar por ISOCurrCod: " + Fecha + " Currency: " + monedaISO, "F", "D");
-                                            UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
+                                            if (calculoMoneda == "CLP")
+                                            {
+                                                oLog.LogMsg("procesado por ISOCurrCod: " + Fecha + " Currency: " + monedaISO, "F", "D");
+                                                UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
+                                            }
+                                            else
+                                            {
+                                                double val = valorIndirecto / (Double)listTC[y].valor;
+                                                oLog.LogMsg("procesado por ISOCurrCod Calculado: " + Fecha + " Currency: " + moneda, "F", "D");
+                                                UpdateSBOSAP(ref oCompany, Fecha, val, ref pSBObob, moneda);
+                                            }
                                             y = listTC.Count;
+                                        }
+                                        else
+                                        {
+                                            if (monedaInternacional == listTC[y].codigo)
+                                            {
+                                                if (calculoMoneda == "CLP")
+                                                {
+                                                    oLog.LogMsg("procesado por DocCurrCod: " + Fecha + " Currency: " + monedaInternacional, "F", "D");
+                                                    UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
+                                                }
+                                                else
+                                                {
+                                                    double val = valorIndirecto / (Double)listTC[y].valor;
+                                                    oLog.LogMsg("procesado por DocCurrCod Calculado: " + Fecha + " Currency: " + moneda, "F", "D");
+                                                    UpdateSBOSAP(ref oCompany, Fecha, val, ref pSBObob, moneda);
+                                                }
+                                                y = listTC.Count;
+                                            }
                                         }
                                     }
                                 }
@@ -509,11 +603,104 @@ namespace SBO_VID_Currency
                             oRS.MoveFirst();
                         }
                         Fecha = DateTime.Now;
-                   }
-
-
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                oLog.LogMsg("deployCurrencyCal Error :  exepcion: " + e.Message, "A", "E");
             }
 
+        }
+
+        /// <summary>
+        /// carga los valores que se encuentra en el Webservice
+        /// </summary>
+        /// <param name="oCompany"></param>
+        private void deployCurrency(SAPbobsCOM.Company oCompany)
+        {
+            SAPbobsCOM.Recordset oRS = (SAPbobsCOM.Recordset)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+            SAPbobsCOM.SBObob pSBObob = (SAPbobsCOM.SBObob)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoBridge);
+
+            TasaCambioSBO oTasaCambioSBO = new TasaCambioSBO();
+            List<TasaCambioSBO> oTasasCambio = new List<TasaCambioSBO>();
+            DateTime Fecha = DateTime.Now;
+            Dictionary<DateTime, Decimal> AuxDict = new Dictionary<DateTime, decimal>();
+
+            String oSql;
+            int diasAProcesar;
+            
+            // Validar definicion de monedas
+            if (oCompany.DbServerType == SAPbobsCOM.BoDataServerTypes.dst_HANADB)
+                oSql = @"SELECT ""CurrCode"", ""CurrName"" , ""ISOCurrCod"" , ""DocCurrCod""  
+                        FROM ""OCRN"" 
+                        WHERE ""Locked"" = 'N' ";
+            else
+                oSql = "SELECT CurrCode, CurrName , ISOCurrCod , DocCurrCod " +
+                       "FROM OCRN            " +
+                       "WHERE Locked = 'N' ";
+
+            oRS.DoQuery(oSql);
+            if (oRS.RecordCount > 0)
+            {
+
+                if (SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar > 0)
+                    diasAProcesar = 0;
+                else
+                    diasAProcesar = SBO_VID_Currency.Properties.Settings.Default.DiasAnterioresAProcesar;
+
+                oLog.LogMsg("Dias a procesar : " + diasAProcesar, "F", "D");
+
+                for (int x = diasAProcesar; x <= 1; x++)
+                {
+                    Fecha = Fecha.AddDays(x);
+                    string dateFormat = Fecha.ToString("yyyy-MM-dd");
+                    oLog.LogMsg("Dia: " + dateFormat, "F", "D");
+                    string url = SBO_VID_Currency.Properties.Settings.Default.WEBPage;
+                    string responseRest = restGETWhitParameter(url, dateFormat);
+                    if (responseRest != "[]")
+                    {
+                        var listTC = JsonConvert.DeserializeObject<List<TC>>(responseRest);
+                        for (int i = 0; i < oRS.RecordCount; i++)  //Monedas en SAP
+                        {
+                            string moneda = ((System.String)oRS.Fields.Item("CurrCode").Value).Trim();
+                            string monedaISO = ((System.String)oRS.Fields.Item("ISOCurrCod").Value).Trim();
+                            string monedaInternacional = ((System.String)oRS.Fields.Item("DocCurrCod").Value).Trim();
+                            for (int y = 0; y < listTC.Count; y++)
+                            {
+                                if (moneda == listTC[y].codigo)
+                                {
+
+                                    oLog.LogMsg("procesado por CurrCode: " + Fecha + " Currency: " + moneda, "F", "D");
+                                    UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
+                                    y = listTC.Count;
+                                }
+                                else
+                                {
+                                    if (monedaISO == listTC[y].codigo)
+                                    {
+                                        oLog.LogMsg("procesado por ISOCurrCod: " + Fecha + " Currency: " + monedaISO, "F", "D");
+                                        UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
+                                        y = listTC.Count;
+                                    }
+                                    else
+                                    {
+                                        if (monedaInternacional == listTC[y].codigo)
+                                        {
+                                            oLog.LogMsg("procesado por DocCurrCod: " + Fecha + " Currency: " + monedaInternacional, "F", "D");
+                                            UpdateSBOSAP(ref oCompany, Fecha, (Double)listTC[y].valor, ref pSBObob, moneda);
+                                            y = listTC.Count;
+                                        }
+                                    }
+                                }
+                            }
+                            oRS.MoveNext();
+                        }
+                        oRS.MoveFirst();
+                    }
+                    Fecha = DateTime.Now;
+                }
+            }
         }
 
         private void processCurrencyDB(SqlConnection cnn)

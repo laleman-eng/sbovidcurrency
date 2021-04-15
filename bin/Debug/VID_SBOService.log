@@ -383,3 +383,144 @@ Informacion: 4/12/2021 10:53:22 AM - Valor a cargar Moneda: FR Fecha:4/12/2021 1
 Informacion: 4/12/2021 10:53:23 AM - Valor a cargar Moneda: UF Fecha:4/12/2021 10:53:16 AM Valor: 29423.57
 Informacion: 4/12/2021 10:53:24 AM - Valor a cargar Moneda: USD Fecha:4/12/2021 10:53:16 AM Valor: 711.23
 Informacion: 4/12/2021 10:53:25 AM - Valor a cargar Moneda: UTM Fecha:4/12/2021 10:53:16 AM Valor: 51592
+Informacion: 4/14/2021 7:04:50 PM - Servicio iniciado
+Informacion: 4/14/2021 7:09:24 PM - Servicio iniciado
+Informacion: 4/14/2021 7:10:13 PM - timer iniciado
+Informacion: 4/14/2021 7:10:17 PM - Conexion a SBO: GasmarSBO - Login SLD Failed, make sure the server, company and user credential are correct
+Error: 4/14/2021 7:10:17 PM - Login SLD Failed, make sure the server, company and user credential are correct
+Informacion: 4/14/2021 7:10:20 PM - Proceso finalizado 
+Informacion: 4/14/2021 7:11:54 PM - Servicio iniciado
+Informacion: 4/14/2021 7:12:13 PM - timer iniciado
+Warning: 4/14/2021 7:12:21 PM - Licencia de demostracion 
+Informacion: 4/14/2021 7:12:22 PM - Conexion a SBO: GasmarSBO - OK
+Informacion: 4/14/2021 8:35:43 PM - Servicio iniciado
+Informacion: 4/14/2021 8:35:45 PM - timer iniciado
+Warning: 4/14/2021 8:35:52 PM - Licencia de demostracion 
+Informacion: 4/14/2021 8:35:52 PM - Conexion a SBO: GasmarSBO - OK
+Error: 4/14/2021 8:36:13 PM - Error en ejecución de servicio  en empresa GasmarSBO Excepcion: 1). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'Locked'.
+2). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'CurrCode'.
+3). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'CurrName'.
+4). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'ISOCurrCod'.
+5). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'DocCurrCod'.
+6). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'FrgnNameFROM'.
+7). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Statement(s) could not be prepared.
+
+Informacion: 4/14/2021 8:36:13 PM - Proceso finalizado 
+Informacion: 4/14/2021 8:37:08 PM - Servicio iniciado
+Informacion: 4/14/2021 8:37:10 PM - timer iniciado
+Warning: 4/14/2021 8:37:17 PM - Licencia de demostracion 
+Informacion: 4/14/2021 8:37:17 PM - Conexion a SBO: GasmarSBO - OK
+Error: 4/14/2021 8:37:44 PM - Error en ejecución de servicio  en empresa GasmarSBO Excepcion: 1). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'Locked'.
+2). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'CurrCode'.
+3). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'CurrName'.
+4). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'ISOCurrCod'.
+5). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'DocCurrCod'.
+6). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'FrgnNameFROM'.
+7). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Statement(s) could not be prepared.
+
+Informacion: 4/14/2021 8:37:53 PM - Proceso finalizado 
+Informacion: 4/14/2021 8:38:51 PM - Servicio iniciado
+Informacion: 4/14/2021 8:38:59 PM - timer iniciado
+Warning: 4/14/2021 8:39:06 PM - Licencia de demostracion 
+Informacion: 4/14/2021 8:39:06 PM - Conexion a SBO: GasmarSBO - OK
+Error: 4/14/2021 8:39:34 PM - Error en ejecución de servicio  en empresa GasmarSBO Excepcion: 1). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'Locked'.
+2). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'CurrCode'.
+3). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'CurrName'.
+4). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'ISOCurrCod'.
+5). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'DocCurrCod'.
+6). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Invalid column name 'FrgnNameFROM'.
+7). [Microsoft][ODBC Driver 13 for SQL Server][SQL Server]Statement(s) could not be prepared.
+
+Informacion: 4/14/2021 8:40:23 PM - Servicio iniciado
+Informacion: 4/14/2021 8:40:26 PM - timer iniciado
+Warning: 4/14/2021 8:40:34 PM - Licencia de demostracion 
+Informacion: 4/14/2021 8:40:34 PM - Conexion a SBO: GasmarSBO - OK
+Informacion: 4/14/2021 8:41:11 PM - Servicio iniciado
+Informacion: 4/14/2021 8:41:13 PM - timer iniciado
+Warning: 4/14/2021 8:41:20 PM - Licencia de demostracion 
+Informacion: 4/14/2021 8:41:20 PM - Conexion a SBO: GasmarSBO - OK
+Informacion: 4/14/2021 8:44:38 PM - Servicio iniciado
+Informacion: 4/14/2021 8:44:59 PM - Servicio iniciado
+Informacion: 4/14/2021 8:45:02 PM - timer iniciado
+Warning: 4/14/2021 8:45:09 PM - Licencia de demostracion 
+Informacion: 4/14/2021 8:45:09 PM - Conexion a SBO: GasmarSBO - OK
+Informacion: 4/14/2021 8:45:40 PM - Valor a cargar Moneda: CEU Fecha:4/13/2021 8:45:09 PM Valor: 844.76
+Informacion: 4/14/2021 8:46:08 PM - Valor a cargar Moneda: CLP Fecha:4/13/2021 8:45:09 PM Valor: 709.51
+Error: 4/14/2021 8:46:10 PM - Error en ejecución de servicio  en empresa GasmarSBO Excepcion: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+Informacion: 4/14/2021 8:50:21 PM - Servicio iniciado
+Informacion: 4/14/2021 8:50:22 PM - timer iniciado
+Warning: 4/14/2021 8:50:30 PM - Licencia de demostracion 
+Informacion: 4/14/2021 8:50:30 PM - Conexion a SBO: GasmarSBO - OK
+Debug: 4/14/2021 8:50:40 PM - Tipo de cambio  CEU ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 8:50:52 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Informacion: 4/14/2021 8:52:33 PM - Servicio iniciado
+Informacion: 4/14/2021 8:52:36 PM - timer iniciado
+Warning: 4/14/2021 8:52:43 PM - Licencia de demostracion 
+Informacion: 4/14/2021 8:52:43 PM - Conexion a SBO: GasmarSBO - OK
+Debug: 4/14/2021 8:53:14 PM - Tipo de cambio  CEU ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 8:53:22 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 8:54:33 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 8:55:08 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 8:55:21 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 8:55:21 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 8:55:22 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 8:55:23 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Informacion: 4/14/2021 9:03:38 PM - Servicio iniciado
+Informacion: 4/14/2021 9:03:41 PM - timer iniciado
+Warning: 4/14/2021 9:03:48 PM - Licencia de demostracion 
+Informacion: 4/14/2021 9:03:48 PM - Conexion a SBO: GasmarSBO - OK
+Debug: 4/14/2021 9:04:01 PM - Tipo de cambio  CEU ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:04:30 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Informacion: 4/14/2021 9:05:25 PM - Servicio iniciado
+Informacion: 4/14/2021 9:05:28 PM - timer iniciado
+Warning: 4/14/2021 9:05:36 PM - Licencia de demostracion 
+Informacion: 4/14/2021 9:05:36 PM - Conexion a SBO: GasmarSBO - OK
+Debug: 4/14/2021 9:05:42 PM - Tipo de cambio  CEU ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:05:59 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Informacion: 4/14/2021 9:06:43 PM - Servicio iniciado
+Informacion: 4/14/2021 9:06:46 PM - timer iniciado
+Warning: 4/14/2021 9:06:53 PM - Licencia de demostracion 
+Informacion: 4/14/2021 9:06:53 PM - Conexion a SBO: GasmarSBO - OK
+Debug: 4/14/2021 9:07:06 PM - Tipo de cambio  CEU ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:07:10 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Informacion: 4/14/2021 9:08:18 PM - Valor a cargar Moneda: CUF Fecha:4/13/2021 9:06:53 PM Valor: 29427.49
+Informacion: 4/14/2021 9:08:50 PM - Valor a cargar Moneda: EUR Fecha:4/13/2021 9:06:53 PM Valor: 0.839895354893698
+Informacion: 4/14/2021 9:09:18 PM - Valor a cargar Moneda: UF Fecha:4/13/2021 9:06:53 PM Valor: 0.0241104491072803
+Debug: 4/14/2021 9:10:54 PM - Tipo de cambio  USD ya se encuentra ingresado en la sociedad Enter valid currency code 
+Informacion: 4/14/2021 9:11:00 PM - Valor a cargar Moneda: CEU Fecha:4/14/2021 9:10:56 PM Valor: 846.63
+Informacion: 4/14/2021 9:11:37 PM - Valor a cargar Moneda: CLP Fecha:4/14/2021 9:10:56 PM Valor: 708.71
+Informacion: 4/14/2021 9:11:41 PM - Valor a cargar Moneda: CUF Fecha:4/14/2021 9:10:56 PM Valor: 29431.41
+Informacion: 4/14/2021 9:11:42 PM - Valor a cargar Moneda: EUR Fecha:4/14/2021 9:10:56 PM Valor: 0.837095307277087
+Informacion: 4/14/2021 9:11:43 PM - Valor a cargar Moneda: UF Fecha:4/14/2021 9:10:56 PM Valor: 0.0240800559674171
+Debug: 4/14/2021 9:11:43 PM - Tipo de cambio  USD ya se encuentra ingresado en la sociedad Enter valid currency code 
+Informacion: 4/14/2021 9:11:47 PM - Valor a cargar Moneda: CEU Fecha:4/15/2021 9:11:43 PM Valor: 847.01
+Informacion: 4/14/2021 9:11:47 PM - Valor a cargar Moneda: CLP Fecha:4/15/2021 9:11:43 PM Valor: 707.25
+Informacion: 4/14/2021 9:11:48 PM - Valor a cargar Moneda: CUF Fecha:4/15/2021 9:11:43 PM Valor: 29435.32
+Informacion: 4/14/2021 9:11:49 PM - Valor a cargar Moneda: EUR Fecha:4/15/2021 9:11:43 PM Valor: 0.834996044910922
+Informacion: 4/14/2021 9:11:51 PM - Valor a cargar Moneda: UF Fecha:4/15/2021 9:11:43 PM Valor: 0.0240272570503735
+Debug: 4/14/2021 9:11:51 PM - Tipo de cambio  USD ya se encuentra ingresado en la sociedad Enter valid currency code 
+Informacion: 4/14/2021 9:11:55 PM - Proceso finalizado 
+Informacion: 4/14/2021 9:17:38 PM - Servicio iniciado
+Informacion: 4/14/2021 9:20:19 PM - timer iniciado
+Warning: 4/14/2021 9:20:25 PM - Licencia de demostracion 
+Informacion: 4/14/2021 9:20:25 PM - Conexion a SBO: GasmarSBO - OK
+Debug: 4/14/2021 9:20:29 PM - Tipo de cambio  CEU ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:29 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:29 PM - Tipo de cambio  CUF ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:30 PM - Tipo de cambio  EUR ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:30 PM - Tipo de cambio  UF ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:30 PM - Tipo de cambio  USD ya se encuentra ingresado en la sociedad Enter valid currency code 
+Debug: 4/14/2021 9:20:30 PM - Tipo de cambio  CEU ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:30 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:30 PM - Tipo de cambio  CUF ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:31 PM - Tipo de cambio  EUR ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:31 PM - Tipo de cambio  UF ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:31 PM - Tipo de cambio  USD ya se encuentra ingresado en la sociedad Enter valid currency code 
+Debug: 4/14/2021 9:20:31 PM - Tipo de cambio  CEU ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:31 PM - Tipo de cambio  CLP ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:31 PM - Tipo de cambio  CUF ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:32 PM - Tipo de cambio  EUR ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:32 PM - Tipo de cambio  UF ya se encuentra ingresado en la sociedad Exchange rate for this date is already defined 
+Debug: 4/14/2021 9:20:32 PM - Tipo de cambio  USD ya se encuentra ingresado en la sociedad Enter valid currency code 
+Informacion: 4/14/2021 9:20:32 PM - Proceso finalizado 
