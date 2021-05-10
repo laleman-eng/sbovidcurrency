@@ -352,7 +352,9 @@ namespace SBO_VID_Currency
                     break;
                 case 5: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_MSSQL2017;
                     break;
-                case 6: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_HANADB;
+                case 6: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_MSSQL2019;
+                    break;
+                case 7: oCompany.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_HANADB;
                     break;
             }
             oCompany.UseTrusted = false;

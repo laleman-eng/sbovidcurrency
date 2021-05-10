@@ -178,6 +178,7 @@
             "2014",
             "2016",
             "2017",
+            "2019",
             "HANA"});
             this.cbSqlType.Location = new System.Drawing.Point(105, 24);
             this.cbSqlType.Name = "cbSqlType";

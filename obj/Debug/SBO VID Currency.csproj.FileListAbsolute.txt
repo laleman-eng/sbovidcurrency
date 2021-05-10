@@ -42,6 +42,7 @@ C:\VisualK\SBOVIDCurrency\bin\Debug\SBO VID Currency.exe.config
 C:\VisualK\SBOVIDCurrency\bin\Debug\SBO VID Currency.exe
 C:\VisualK\SBOVIDCurrency\bin\Debug\SBO VID Currency.pdb
 C:\VisualK\SBOVIDCurrency\bin\Debug\HtmlAgilityPack.dll
+C:\VisualK\SBOVIDCurrency\bin\Debug\Interop.SAPbobsCOM.dll
 C:\VisualK\SBOVIDCurrency\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
 C:\VisualK\SBOVIDCurrency\bin\Debug\Newtonsoft.Json.dll
 C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.Core.dll
@@ -54,6 +55,7 @@ C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.Core.pdb
 C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.GlobalVid.pdb
 C:\VisualK\SBOVIDCurrency\bin\Debug\VisualD.uEncrypt.pdb
 C:\VisualK\SBOVIDCurrency\bin\Debug\es\Microsoft.VisualBasic.PowerPacks.Vs.resources.dll
+C:\VisualK\SBOVIDCurrency\obj\Debug\SBO VID Currency.csprojResolveAssemblyReference.cache
 C:\VisualK\SBOVIDCurrency\obj\Debug\SBO_VID_Currency.Properties.Resources.resources
 C:\VisualK\SBOVIDCurrency\obj\Debug\SBO_VID_Currency.ServiceForm.resources
 C:\VisualK\SBOVIDCurrency\obj\Debug\SBO_VID_Currency.SetupParams.resources

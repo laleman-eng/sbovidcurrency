@@ -29,7 +29,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -73,10 +73,9 @@
     <Reference Include="HtmlAgilityPack">
       <HintPath>DLL\HtmlAgilityPack.dll</HintPath>
     </Reference>
-    <Reference Include="Interop.SAPbobsCOM, Version=10.0.0.0, Culture=neutral, PublicKeyToken=82b98416541d2843, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>SAP90\Interop.SAPbobsCOM.dll</HintPath>
+    <Reference Include="Interop.SAPbobsCOM">
+      <HintPath>SAP91 x64\Interop.SAPbobsCOM.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualBasic" />
@@ -97,17 +96,17 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="VisualD.Core, Version=1.0.3.5, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="VisualD.Core, Version=1.0.2.39, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>DLL\VisualD.Core.dll</HintPath>
+      <HintPath>DLL x64\VisualD.Core.dll</HintPath>
     </Reference>
     <Reference Include="VisualD.GlobalVid, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>VisualD.GlobalVid\bin\Debug\VisualD.GlobalVid.dll</HintPath>
     </Reference>
-    <Reference Include="VisualD.uEncrypt, Version=1.0.3.5, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="VisualD.uEncrypt, Version=1.0.2.39, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>DLL\VisualD.uEncrypt.dll</HintPath>
+      <HintPath>DLL x64\VisualD.uEncrypt.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
